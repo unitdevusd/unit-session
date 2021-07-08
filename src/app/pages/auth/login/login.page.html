@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="unit-btn" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+  <div class="logo">
+    <img _ngcontent-cmb-c7="" src="../../../../assets/imgs/logo.png">
+  </div>
+  <ion-grid fixed style="height: 40%;">
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 80%;">
+      <ion-col size="12" class="ion-text-center">
+        <form class="form" [formGroup]="loginForm" *ngIf="!passwordInput">
+          <ion-list class="line-input" mode="md">
+            <ion-item mode="md">
+
+              <div class="left-icon">
+                <img src="../../../../assets/imgs/awesome-user-edit.png">
+              </div>
+              <ion-input class="ion-text-left" placeholder="Username" type="email" formControlName="emailId"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-list class="line-input" mode="md">
+            <ion-item mode="md">
+              <div class="left-icon">
+                <img src="../../../../assets/imgs/ionic-ios-lock.png">
+              </div>
+              <ion-input class="ion-text-left" type="password" placeholder="Password" formControlName="password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="15" size-lg offset="3" class="ion-align-self-end">
+                <p class="forgot-pass">
+                  <a routerLink="/forgot-password">Forgot Password?</a>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button class="button-h" *ngIf="!passwordInput" fill="solid" size="default" shape="round" expand="block"
+          color="unit-btn" [disabled]="!loginForm.valid" (click)="login()">
+          Login
+        </ion-button>
+        <p class="have">
+          Don't have an account? <br>
+          <a routerLink="/phone-verification" class="signup-text"> Sign up </a>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-tabs #app_tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1" *ngIf="!permissions.canCreateSpace && !permissions.spaceCanRetriveAll ">
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-label>Explore</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="my-spaces" *ngIf="permissions.canCreateSpace">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>My Spaces</ion-label>
+    </ion-tab-button>
+    <!-- case tenant -->
+    <ion-tab-button tab="tab2" *ngIf="permissions.canRetriveOwnBookings">
+      <ion-icon name='bookmark-outline'></ion-icon>
+      <ion-label>Bookings</ion-label>
+    </ion-tab-button>
+    <!-- case owner -->
+    <ion-tab-button tab="tab4" *ngIf="permissions.canRetriveSpaceBookings">
+      <ion-icon name='bookmark-outline'></ion-icon>
+      <ion-label>Bookings</ion-label>
+    </ion-tab-button>
+    <!-- case noti -->
+    <ion-tab-button tab="tab3" *ngIf="permissions.notificationcanRetrive">
+      <ion-icon name="notifications-outline"></ion-icon>
+      <ion-label>Inbox</ion-label>
+    </ion-tab-button>
+    <!--case Admin-->
+    <ion-tab-button tab="admin-dash" *ngIf="permissions.spaceCanRetriveAll">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Dashboard</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="settings" *ngIf="permissions.spaceCanRetriveAll">
+      <ion-icon name="settings-outline"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile" *ngIf="!permissions.spaceCanRetriveAll">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

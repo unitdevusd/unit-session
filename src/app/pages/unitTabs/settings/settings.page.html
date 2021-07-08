@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+   <!-- PROFILE -->
+   <div class="ion-padding">
+    <img class="circle-pic" src="{{profileImage}}" />
+    <div style="margin: 20px;" class="ion-text-center">
+      <ion-label>
+        <h3>{{name}}</h3>
+        <h4>{{email}}</h4>
+        <h4>{{contact}} </h4>
+      </ion-label>
+    </div>
+  </div>
+    <ion-list>
+      <ion-list-header>
+        Account settings
+      </ion-list-header>
+      <ion-item *ngFor="let p of adminPages" [routerLink]="[p.url]">
+        <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ p.title }}</ion-label>
+      </ion-item> 
+    </ion-list>  
+    <!-- <ion-list class="list-space">
+      <ion-list-header>
+       Notifications
+      </ion-list-header>
+      <ion-item routerLink="/send-notifications">
+        <ion-icon slot="start" name="rocket-outline"></ion-icon>
+        <ion-label>Notify all users</ion-label>
+      </ion-item>
+      </ion-list> -->
+    <ion-item lines="none" class="list-space" (click)="logout()">
+      <ion-label style="font-weight: bold; color: red;">Log out</ion-label>
+    </ion-item>
+</ion-content>

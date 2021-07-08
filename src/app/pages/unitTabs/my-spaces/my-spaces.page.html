@@ -1,0 +1,110 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="tittle">My Units</ion-title>
+    <ion-buttons slot="end" (click)="addSpace()">
+      <ion-button>
+        <img src="../../../../assets/imgs/ionic-ios-add.png" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="placesList.length != 0; else notFound" class="content">
+    <div *ngFor="let space of placesList" class="ion-no-padding">
+      <ion-grid class="card-grid ion-no-padding">
+        <ion-row class="ion-no-padding">
+          <ion-col size="12" class="ion-no-padding">
+            <ion-card style="border-radius: 15px;" class="card_features ion-no-padding">
+              <ion-grid class="heading-grid">
+                <ion-row>
+                  <ion-col size="7">
+                    <h4 style="margin-left: 8px;">{{space.name}}</h4>
+                  </ion-col>
+                  <ion-col size="5" style="text-align: end; margin-top: 5px;">
+                    <span class="dot-green" *ngIf="space.publish"></span>
+                    <span class="dot-danger" *ngIf="!space.publish"></span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <div *ngIf="space.images?.length; else noImageFound">
+                <img class="spaceimg" src="{{space.images[0]}}" />
+              </div>
+              <ng-template #noImageFound>
+                <div *ngIf="!space.images?.length">
+                  <img src="../../../../assets/imgs/dummy_space.png" />
+                </div>
+              </ng-template>
+              <ion-grid *ngIf="space.spaceStatus === 'Complete'">
+                <ion-row>
+                  <ion-col size="8">
+                    <ion-card-header>
+                      <ion-card-subtitle style="margin-left: 8px;">{{space.address}}</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <div class="card-content" style="margin-left: 8px;">
+                        {{space.spaceName}} <span> ({{space.itemToStore}})</span>
+                      </div>
+                    </ion-card-content>
+                  </ion-col>
+                  <ion-col size="4" class="no-padding">
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid *ngIf="space.spaceStatus === 'Complete'">
+                <ion-row>
+                  <ion-col size="8">
+                    <div style="margin-top: 10px; margin-left: 8px; margin-bottom: 5px;">
+                      <img src="../../../../assets/imgs/metro-bin.png" class="mr-l" (click)="deleteSpaceAlert(space)">
+                      <img src="../../../../assets/imgs/feather-edit-place.png" class="mr-l" (click)="editSpace(space)">
+                      <img src="../../../../assets/imgs/feather-share.png" class="mr-l"
+                        (click)="shareByFacebook(space)">
+                    </div>
+                  </ion-col>
+                  <ion-col size="4">
+                    <ion-button shape="round" *ngIf="space.publish" fill="outline" expand="block"
+                      (click)="publish(space,false)" color="unit-btn">
+                      Unpublish
+                    </ion-button>
+                    <ion-button shape="round" color="primary" (click)="publish(space, true)" *ngIf="!space.publish"
+                      fill="outline" expand="block" color="unit-btn">
+                      Publish
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <div *ngIf="space.spaceStatus === 'Progress'" (click)="inProgress(space)">
+                <ion-card-header>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-item lines="none" style="margin-bottom: 10px;">
+                    <ion-label>
+                      <span class="finish">
+                        Finish your listing
+                      </span>
+                      <br>
+                      <span class="progress-text">you're {{space.progressPercentage}} % of the way there.</span>
+                      <ion-progress-bar color="success" [value]="10/100"></ion-progress-bar>
+                    </ion-label>
+                    <ion-icon slot="end" name="chevron-forward-sharp"></ion-icon>
+                  </ion-item>
+                </ion-card-content>
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <ng-template #notFound>
+    <h2 class="main-heading" *ngIf="userName">Hi {{userName}} {{lastName}}</h2>
+    <h3 class="main-titile" *ngIf="userName">Do you want to add any spaces?</h3>
+    <div class="ion-padding">
+      <img class="dummy_place" src="/assets/imgs/owner_img.png" />
+    </div>
+    <div class="addplace">
+      <ion-button shape="round" color="unit-white" (click)="addSpace()" fill="outline" expand="block" class="new-btn">
+        Add new Space
+      </ion-button>
+    </div>
+  </ng-template>
+</ion-content>

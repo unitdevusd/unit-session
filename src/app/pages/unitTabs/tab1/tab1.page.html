@@ -1,0 +1,189 @@
+<ion-content [fullscreen]="true">
+  <ion-grid class="user-details pad-lr" *ngIf="displayName">
+    <ion-row>
+      <ion-col size="10">
+        <h2 class="name-txt">Hi</h2>
+        <p class="find-txt">Let's find a perfect space for you. <br>Enjoy the conforts of an affordable rental!</p>
+      </ion-col>
+      <ion-col size="2" class="noti">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="ion-no-padding pad-lr">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding" [size]="size">
+        <ion-searchbar [(ngModel)]="autocomplete.input" #searchbar placeholder="Search for Location" searchIcon=" "
+          (ionInput)="searchLocation()" clearIcon=" " (ionFocus)="checkFocus()" (ionClear)="clearAutocomplete()">
+          <img src="../../../../assets/imgs/feather-search.png" />
+        </ion-searchbar>
+      </ion-col>
+      <ion-col [size]="sizeFilter" class="noti">
+        <img src="../../../../assets/imgs/group92.png" *ngIf="!hasFilter" name="options-outline" (click)="openFilter()"
+          style="margin-right: 14px; margin-top: 14px;">
+        <img src="../../../../assets/imgs/group92.png" *ngIf="hasFilter" color="unit-btn" name="options-outline"
+          (click)="openFilter()" style="margin-right: 14px; margin-top: 14px;">
+      </ion-col>
+      <ion-col [size]="1" class="noti_main" *ngIf="!displayName">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div [hidden]="autocompleteItems.length == 0" class="search_list">
+    <ion-list (click)="useCurrentLocation()" lines="none">
+      <ion-item>
+        <ion-label>
+          <img  class="image-loc" style="margin-inline-end: 0px !important;" slot="start"
+            src="../../../../assets/imgs/material-location-on.png" />
+          <p class="main_text">Current Location</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list [hidden]="autocompleteItems.length == 0" lines="none">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+        <ion-label>
+          <p class="secondary_text"> {{ item.structured_formatting.secondary_text }} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-grid class="category">
+    <ion-row>
+      <ion-col size="3" *ngFor="let st of spaceType" (click)="spaceClick(st)">
+        <div>
+          <img class="img-spacetype" *ngIf="st?.images?.length; else noImage" src="{{st.images[0]}}" />
+          <ng-template #noImage>
+            <img class="img-spacetype" src="../../../../assets/imgs/dummys.png" />
+          </ng-template>
+        </div>
+        <span [ngStyle]="{'color':st.status === true ? 'red' : '' }">{{st.spaceType}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="clear" *ngIf="clearFilter">
+    <p>
+      <a style="color: red;" (click)="clearFilters()">clear Filters </a>
+    </p>
+  </div>
+  <div class="content" *ngIf="displayName">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3 class="top-heading">Featured</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div style="position: absolute;top: 42%;left: 0px;font-size: 25px;z-index: 2;" (click)="slidePrev()" *ngIf="placesList.length > 1">
+      <ion-icon name="chevron-back-outline" color="unit-btn"></ion-icon>
+    </div>
+    <div style="position: absolute;top: 42%;right: 0px;font-size: 25px;z-index: 2;" (click)="slideNext()" *ngIf="placesList.length > 1">
+      <ion-icon name="chevron-forward-outline" color="unit-btn"></ion-icon>
+    </div>
+    <ion-slides   #slides   *ngIf="placesList.length; else noPlaces" [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }" >
+      <ion-slide *ngFor="let item of placesList" (click)="place(item)"
+        style="width: 100px; height: 370px; border: 2px solid #f8f8f8">
+        <ion-grid class="card-grid">
+          <ion-row>
+            <ion-col>
+              <ion-card class="card_features ion-no-padding">
+                <img *ngIf="item?.images?.length; else noimage" src="{{item.images[0]}}" />
+                <ng-template #noimage>
+                  <img  src="../../../../assets/imgs/dummy_space1.png" />
+                </ng-template>
+                <ion-card-header>
+                  <ion-card-subtitle>{{item?.name}}</ion-card-subtitle>
+                  <ion-card-title>{{item?.spaceName}} ({{item?.storedItemInfo?.name}})</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="no-padding">
+                  <div class="card-content">
+                    ${{item?.pricing?.daily}}/<span>day</span>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+    <ng-template #noPlaces>
+      <div class="no-item">
+        <img src="../../../../assets/imgs/emptyList.png" />
+        <h5> No places Found</h5>
+      </div>
+    </ng-template>
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-no-padding"> 
+        <ion-col>
+          <h3 class="top-heading-popular">Popular</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-slides #productSlider *ngIf="placesList.length;else noPopular" [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let item of placesList" (click)="place(item)"
+        style="width: 100px; height: 370px; border: 2px solid #f8f8f8;">
+        <ion-grid class="card-grid-new" >
+          <ion-row class="ion-no-padding">
+            <ion-col class="ion-no-padding">
+              <ion-card class="card_features ion-no-padding">
+                <img *ngIf="item?.images?.length" src="{{item.images[0]}}" />
+                <img *ngIf="!item?.images?.length" src="../../../../assets/imgs/dummy_space1.png" />
+                <ion-card-header>
+                  <ion-card-subtitle>{{item?.name}}</ion-card-subtitle>
+                  <ion-card-title> {{item?.spaceName}} ({{item?.storedItemInfo?.name}})</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="no-padding">
+                  <div class="card-content-popular">
+                    ${{item?.pricing?.daily}}/<span>day</span>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+   <ng-template #noPopular>
+      <div class="no-item">
+        <img src="../../../../assets/imgs/emptyList.png" />
+        <h5> No places Found</h5>
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="!displayName">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3 class="top-heading">Top featured</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div *ngFor="let item of placesList" (click)="place(item)" class="placelist">
+      <ion-card class="card_features">
+        <img *ngIf="item.images.length" src="{{item.images[0]}}" />
+        <img *ngIf="!item.images.length" src="../../../../assets/imgs/dummy_space.png" />
+        <div class="pricing_full">
+          ${{item?.pricing?.daily}}/<span>day</span>
+        </div>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-card-header>
+                  <ion-card-subtitle style="margin-top: 0px !important;">{{item?.spaceName}}</ion-card-subtitle>
+                  <ion-card-title> 1 <span> room </span> 1 <span>bed</span> {{item?.size?.areainfeet}} sqfeet
+                  </ion-card-title>
+                </ion-card-header>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ng-template #noPlaces>
+      <div class="no-item">
+        <img src="../../../../assets/imgs/emptyList.png" />
+        <h5> No places Found</h5>
+      </div>
+    </ng-template>
+  </div>
+</ion-content>

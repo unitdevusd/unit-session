@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Inbox
+    </ion-title>
+    <ion-buttons slot="end" (click)="archive()">
+      <ion-button>
+        <ion-icon color="unit-btn" name="ellipsis-horizontal-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-refresher color="unit-btn" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!logged">
+    <ion-item style="padding-top: 40px;" *ngIf="!logged" lines="none">
+      <ion-button expand="block" color="unit-btn" fill="outline" (click)="logIn()">Log in</ion-button>
+    </ion-item>
+    <ion-item lines="none" *ngIf="!logged">
+      <p class="p-text">
+        <a color="unit-btn" routerLink="/phone-verification"> New here? Sign up </a>
+      </p>
+    </ion-item>
+  </div>
+  <div *ngIf="logged">
+    <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
+    <ion-list *ngIf="notificationList.length; else notFound">
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Notifications</ion-label>
+        </ion-item-divider>
+        <ion-item-sliding *ngFor="let notify of notificationList; let i = index ">
+          <ion-item  (click)="onNotiClick(notify,i)">
+            <ion-label>
+              <h3> {{notify.description}}</h3>
+              <p>{{notify.sendAt  | date}}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+            <ion-item-option (click)="markasRead(notify,i)">
+              <ion-icon slot="top" name="reader-outline"></ion-icon>
+              <ion-label> read </ion-label>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-item-group>
+    </ion-list>
+  </div>
+  <ng-template #notFound>
+    <ion-item  *ngIf="notificationList <= 0" class="cancel-box">
+      <div class="ion-padding">
+        <img src="../../../../assets/imgs/emptyList.png">
+        <ion-label class="cancel-text"> {{text}}</ion-label>
+      </div>
+    </ion-item>
+  </ng-template>
+</ion-content>

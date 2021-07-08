@@ -1,0 +1,48 @@
+{
+  "appId": "com.tradebuilderinc.unitApp",
+  "appName": "unit",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "backgroundColor": "#ffffffff",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "androidSpinnerStyle": "large",
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#999999",
+      "showSpinner": true,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "PushNotifications": {
+      "presentationOptions": [
+        "badge",
+        "sound",
+        "alert"
+      ]
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000",
+      "android-minSdkVersion": "22",
+      "android-compileSdkVersion": "29",
+      "android-targetSdkVersion": "29",
+      "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyDIcMCbq_SUtmLvZ6h1fIS9QNsXqi7S9lE",
+      "GOOGLE_MAPS_IOS_API_KEY": "AIzaSyDIcMCbq_SUtmLvZ6h1fIS9QNsXqi7S9lE",
+      "AndroidXEnabled": "true",
+      "AndroidLaunchMode": "singleTop",
+      "AndroidPersistentFileLocation": "Compatibility"
+    }
+  }
+}

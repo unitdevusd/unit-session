@@ -1,0 +1,137 @@
+ion-content ion-toolbar {
+    --background: translucent;
+  }
+  
+  .item-space {
+    padding-top: 10px;
+  }
+  
+  .sc-ion-label-ios-s h3,
+  .sc-ion-label-ios-s h4,
+  .sc-ion-label-ios-s h5,
+  .sc-ion-label-ios-s h6 {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: normal;
+  }
+  
+  ion-item {
+    ion-label {
+      h2 {
+        font-size: medium;
+        font-weight: bold;
+        color: grey;
+      }
+    }
+    ion-button {
+      height: 100%;
+    }
+  }
+  .p-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ion-color-step-600, #60646b);
+    a {
+      text-decoration: none;
+      color: #ed1b25;
+    }
+  }
+  .tab-label {
+    font-size: 13px;
+    color: #000;
+    font-family: "helveticaneuebold";
+  }
+  .tab-spacing {
+    padding: 5px 0;
+  }
+  .tab-padding {
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .full-width {
+    width: 120%;
+    height: 100%;
+    img {
+      border-radius: 20px;
+      width: 300px;
+      display: block;
+      height: 95px;
+      margin-right: 24px;
+    }
+  }
+  h3 {
+    font-size: 13px !important;
+    color: #000;
+    font-family: "helveticaneuebold";
+    font-weight: 400 !important;
+  }
+  h6 {
+    margin-top: 4px;
+    font-size: 11px !important;
+    color: #000;
+    font-family: "helveticaneuebold";
+    font-weight: 400 !important;
+  }
+  .danger {
+    --ion-color-base: #fff !important;
+    --ion-color-contrast: #ff703b !important;
+    text-transform: capitalize;
+    padding-left: 0;
+    font-family: medium;
+    font-size: 13px;
+    padding-top: 10px;
+  }
+  .paid {
+    --ion-color-base: #fff !important;
+    --ion-color-contrast: #1dc916 !important;
+    text-transform: capitalize;
+    padding-left: 0;
+    font-family: medium;
+    font-size: 13px;
+  }
+  .padd-left {
+    margin-left: 40px;
+  }
+  .padding-none {
+    padding: 0;
+  }
+  .cancel-text {
+    text-align: center;
+    font-size: 14px;
+    font-family: "helveticaneuebold";
+    text-align: center;
+  }
+  .ion-padding {
+    width: 100%;
+  }
+  .cancel-box {
+    --inner-border-width: 0;
+  }
+  .cancel-box img {
+    display: block;
+    margin: 0 auto;
+  }
+  .pricing {
+    text-align: left;
+    color: #000;
+    font-size: 11px;
+    font-family: "medium";
+    font-weight: 400;
+    span {
+      color: #9b9b9b;
+    }
+  }
+  
+  hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 0.5px solid #cacaca;
+    height: 0px;
+  }

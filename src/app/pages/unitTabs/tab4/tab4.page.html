@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Unit Bookings</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="placeData.length; else notFound">
+    <div *ngFor="let space of placeData">
+      <ion-card>
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <span class="main-title">
+                  {{space.name}}
+                </span>
+                <br>
+                <br>
+                <span>
+                  <ion-badge color="success" *ngIf="space.publish" class="pb">Published</ion-badge>
+                  <ion-badge color="danger" *ngIf="!space.publish" class="pb">Unpublished</ion-badge>
+                </span>
+              </ion-col>
+              <ion-col size="6">
+                <div *ngIf="space?.images?.length; else noImageFound">
+                  <ion-slides pager="true" [options]="slideOpts" class="item-slider" *ngIf="space.images.length">
+                    <ion-slide *ngFor="let img of space.images">
+                      <img class="slider" style="border-radius: 10px;" src="{{img}}" />
+                    </ion-slide>
+                  </ion-slides>
+                </div>
+                <ng-template #noImageFound>
+                  <div>
+                    <img img src="../../../../assets/imgs/dummy_space.png">
+                  </div>
+                </ng-template>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <br>
+        <h5 class="booking-text">Bookings</h5>
+        <ion-list *ngIf="space.bookings.length != 0; else noBookingFound" lines="none">
+          <ion-item *ngFor="let booking of space.bookings">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>
+                    <h2>Booked by : {{booking.tenantInfo.profile.firstName}} {{booking.tenantInfo.profile.lastName}}
+                    </h2>
+                    <h3>Booked at : {{booking.startDate | date:'longDate'}}</h3>
+                    <h3>Booked upTo : {{booking.endDate | date:'longDate'}}</h3>
+                  </ion-label>
+                </ion-col>
+                <ion-col size="2">
+                  <span>
+                    <ion-badge color="success" *ngIf="booking.paymentStatus" class="paid">{{booking.paymentStatus}}
+                    </ion-badge>
+                    <ion-badge color="danger" *ngIf="!booking.paymentStatus" class="paid">{{booking.paymentStatus}}
+                    </ion-badge>
+                  </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <p>
+                  <a (click)="viewDetails(booking._id)" class="view-txt"> view Details > </a>
+                </p>
+              </ion-row>
+              <ion-row>
+                <div class="hr_main"></div>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+        <ng-template #noBookingFound>
+          <ion-list>
+            <ion-item class="no-booking">
+              No bookings yet!
+            </ion-item>
+          </ion-list>
+        </ng-template>
+      </ion-card>
+    </div>
+  </div>
+  <ng-template #notFound>
+    <div class="ion-padding" style="text-align: center;">
+      <img src="../../../../assets/imgs/emptyList.png" />
+    </div>
+  </ng-template>
+</ion-content>
