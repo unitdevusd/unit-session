@@ -5,6 +5,26 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FcmService } from './services/fcm.service';
 import { Plugins, NetworkStatus, PluginListenerHandle } from '@capacitor/core';
+import { filter } from 'rxjs/operators';
+import { AnalyticsService } from './providers/analytics/analytics.service';
+
+
+export class AppComponent implements OnInit, OnDestroy {
+
+  constructor(
+      ...
+      private analyticsService: AnalyticsService,
+      ...
+  ) {
+    this.initializeApp();
+  }
+
+ ...
+
+  initializeApp() {
+       this.analyticsService.startTrackerWithId('G-280502510');
+  }
+}
 
 const { Network} = Plugins;
 
