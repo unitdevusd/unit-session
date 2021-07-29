@@ -6,25 +6,25 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FcmService } from './services/fcm.service';
 import { Plugins, NetworkStatus, PluginListenerHandle } from '@capacitor/core';
 import { filter } from 'rxjs/operators';
-import { AnalyticsService } from './providers/analytics/analytics.service';
+import { AnalyticsService } from 'providers/analytics/analytics.service';
+// import { AnalyticsService } from './providers/analytics/analytics.service';
 
 
-export class AppComponent implements OnInit, OnDestroy {
+// export class AppComponent implements OnInit, OnDestroy {
 
-  constructor(
-      ...
-      private analyticsService: AnalyticsService,
-      ...
-  ) {
-    this.initializeApp();
-  }
+//   constructor(
+      
+//       private analyticsService: AnalyticsService,
+  
+//   ) {
+//     this.initializeApp();
+//   }
 
- ...
-
-  initializeApp() {
-       this.analyticsService.startTrackerWithId('G-280502510');
-  }
-}
+// ...
+//   initializeApp() {
+//        this.analyticsService.startTrackerWithId('G-280502510');
+//   }
+// }
 
 const { Network} = Plugins;
 
@@ -40,6 +40,7 @@ export class AppComponent {
   networkListener: PluginListenerHandle;
 
   constructor(
+    private analyticsService: AnalyticsService,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -64,6 +65,7 @@ export class AppComponent {
       });
       this.networkStatus = await Network.getStatus();
       // Trigger the push setup 
+      this.analyticsService.startTrackerWithId('G-280502510');
       this.fcmService.initPush();
     });
   }
