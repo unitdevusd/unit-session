@@ -26,6 +26,7 @@
     "@ionic-native/core": "^5.22.0-beta-1",
     "@ionic-native/fcm": "^5.30.0",
     "@ionic-native/geolocation": "^5.30.0",
+    "@ionic-native/google-analytics": "^5.34.0",
     "@ionic-native/native-geocoder": "^5.30.0",
     "@ionic-native/network": "^5.30.0",
     "@ionic-native/social-sharing": "^5.30.0",
@@ -97,7 +98,8 @@
       "cordova-plugin-androidx-adapter": {},
       "cordova-plugin-androidx": {},
       "cordova-plugin-file": {},
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "cordova-plugin-google-analytics": {}
     },
     "platforms": []
   }

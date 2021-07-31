@@ -5,26 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FcmService } from './services/fcm.service';
 import { Plugins, NetworkStatus, PluginListenerHandle } from '@capacitor/core';
-import { filter } from 'rxjs/operators';
-import { AnalyticsService } from 'providers/analytics/analytics.service';
-// import { AnalyticsService } from './providers/analytics/analytics.service';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+<<<<<<< HEAD
 
 
-// export class AppComponent implements OnInit, OnDestroy {
 
-//   constructor(
-      
-//       private analyticsService: AnalyticsService,
-  
-//   ) {
-//     this.initializeApp();
-//   }
 
-// ...
-//   initializeApp() {
-//        this.analyticsService.startTrackerWithId('G-280502510');
-//   }
-// }
 
 const { Network} = Plugins;
 
@@ -45,7 +31,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private _loader: LoadingController,
-    private fcmService: FcmService
+    private fcmService: FcmService,
+    private ga: GoogleAnalytics
   ) {
     this.initializeApp();
   }
@@ -65,8 +52,31 @@ export class AppComponent {
       });
       this.networkStatus = await Network.getStatus();
       // Trigger the push setup 
-      this.analyticsService.startTrackerWithId('G-280502510');
+
       this.fcmService.initPush();
+      this.ga.startTrackerWithId('G-280502510')
+      .then(() => {
+        console.log('Google analytics is ready now');
+        this.ga.trackView('Outbox') 
+        .then(() => {
+
+        })
+        .catch(
+          error => console.log(error)
+        );  
+       }).catch(
+        error => console.log('Google Analytics Error: ' + error)
+      );
+      
+    });
+  }
+
+  // Track an event:
+  trackEvent(val) {
+    // Label and Value are optional, Value is numeric
+    this.ga.trackEvent('Category', 'Action', 'Label', val)
+  }  
+
     });
   }
   async presentLoading(message) {

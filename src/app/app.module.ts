@@ -17,7 +17,9 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { CalendarModule } from 'ion2-calendar';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
-import { AnalyticsService } from './providers/analytics/analytics.service';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +34,6 @@ import { AnalyticsService } from './providers/analytics/analytics.service';
     IonicStorageModule.forRoot()
   ],
   providers: [
-    AnalyticsService,
     StatusBar,
     SplashScreen,
     Geolocation,
@@ -40,6 +41,7 @@ import { AnalyticsService } from './providers/analytics/analytics.service';
     SocialSharing,
     AppVersion,
     Network,
+    GoogleAnalytics,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
