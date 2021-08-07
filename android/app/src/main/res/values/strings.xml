@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">unit</string>
+    <string name="title_activity_main">unit</string>
+    <string name="package_name">com.tradebuilderinc.unitApp</string>
+    <string name="custom_url_scheme">com.tradebuilderinc.unitApp</string>
+</resources>
