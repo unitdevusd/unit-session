@@ -17,7 +17,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { CalendarModule } from 'ion2-calendar';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
-import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { AnalyticsService } from './services/analytics.service';
 
 
 
@@ -41,7 +41,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
     SocialSharing,
     AppVersion,
     Network,
-    GoogleAnalytics,
+    AnalyticsService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

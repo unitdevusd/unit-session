@@ -5,7 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FcmService } from './services/fcm.service';
 import { Plugins, NetworkStatus, PluginListenerHandle } from '@capacitor/core';
-import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { AnalyticsService } from './services/analytics.service';
+
 
 const { Network} = Plugins;
 
@@ -26,12 +27,13 @@ export class AppComponent {
     private statusBar: StatusBar,
     private _loader: LoadingController,
     private fcmService: FcmService,
-    private ga: GoogleAnalytics
+    private analyticsService: AnalyticsService
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
+    this.analyticsService.startTrackerWithId('278622255');
     this.platform.ready().then(async () => {
 
       this.statusBar.styleDefault();
@@ -48,29 +50,6 @@ export class AppComponent {
       // Trigger the push setup 
 
       this.fcmService.initPush();
-  //     this.ga.startTrackerWithId('G-280502510')
-  //     .then(() => {
-  //       console.log('Google analytics is ready now');
-  //       this.ga.trackView('Outbox') 
-  //       .then(() => {
-
-  //       })
-  //       .catch(
-  //         error => console.log(error)
-  //       );  
-  //      }).catch(
-  //       error => console.log('Google Analytics Error: ' + error)
-  //     );
-      
-  //   });
-  // }
-
-  // // Track an event:
-  // trackEvent(val) {
-  //   // Label and Value are optional, Value is numeric
-  //   this.ga.trackEvent('Category', 'Action', 'Label', val)
-  // }  
-
     });
   }
   async presentLoading(message) {
