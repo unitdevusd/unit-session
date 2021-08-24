@@ -24,11 +24,11 @@ export class LocationSelectPage implements OnInit {
  
   
   constructor(
-    private geolocation: Geolocation,
+    public geolocation: Geolocation,
     public zone: NgZone,
-    private router: Router,
-    private nativeGeocoder: NativeGeocoder,
-    private route: ActivatedRoute
+    public router: Router,
+    public nativeGeocoder: NativeGeocoder,
+    public route: ActivatedRoute
   ) {
     this.route.queryParams.subscribe(params => {
       this.fromPage = params.from;

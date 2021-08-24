@@ -13,12 +13,12 @@ import { config, KEY, UNITURL } from '../config/config';
 })
 export class IntroPage implements OnInit {
 
-  private url: any = config.url;
+  public url: any = config.url;
   
   constructor(
-    private router: Router,
-    private _apiService : ApiService,
-    private _gs: GlobalService
+    public router: Router,
+    public _apiService : ApiService,
+    public _gs: GlobalService
     ) { 
       
   }

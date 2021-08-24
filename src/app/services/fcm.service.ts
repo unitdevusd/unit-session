@@ -19,12 +19,12 @@ const { PushNotifications,Device } = Plugins;
 
 export class FcmService {
   
-  private url: any = config.url;
+  public url: any = config.url;
   constructor(
-    private _apiService : ApiService,
-    private zone: NgZone,
-    private _gs : GlobalService,
-    private storage: Storage
+    public _apiService : ApiService,
+    public zone: NgZone,
+    public _gs : GlobalService,
+    public storage: Storage
 
     ) { }
 
@@ -34,7 +34,7 @@ export class FcmService {
     }
   }
 
-   private registerPush() {
+   public registerPush() {
     PushNotifications.requestPermission().then((permission) => {
       if (permission.granted) {
         PushNotifications.register();

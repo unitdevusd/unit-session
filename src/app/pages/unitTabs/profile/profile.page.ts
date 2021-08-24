@@ -45,14 +45,14 @@ export class ProfilePage implements OnInit {
   };
 
   constructor(
-    private storage: Storage,
-    private _gs: GlobalService,
-    private alertCtrl : AlertController,
-    private router : Router,
-    private _toast : ToastService,
-    private socialSharing: SocialSharing,
-    private appVersion: AppVersion,
-    private navController: NavController
+    public storage: Storage,
+    public _gs: GlobalService,
+    public alertCtrl : AlertController,
+    public router : Router,
+    public _toast : ToastService,
+    public socialSharing: SocialSharing,
+    public appVersion: AppVersion,
+    public navController: NavController
   ) {
     this.appVersion.getVersionCode().then(res => {
       this.version = res;

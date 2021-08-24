@@ -13,8 +13,8 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./revenue-share.page.scss'],
 })
 export class RevenueSharePage implements OnInit {
-  private url: any = config.url;
-  private revenueShareForm: FormGroup;
+  public url: any = config.url;
+  public revenueShareForm: FormGroup;
   token: string;
   priceId: any = '';
   priceTypeOptions = [
@@ -33,12 +33,12 @@ export class RevenueSharePage implements OnInit {
 
 
   constructor(
-    private _apiService: ApiService,
-    private _fb: FormBuilder,
-    private loader: LoaderService,
-    private alertCtrl: AlertController,
-    private _toast: ToastService,
-    private storage : Storage
+    public _apiService: ApiService,
+    public _fb: FormBuilder,
+    public loader: LoaderService,
+    public alertCtrl: AlertController,
+    public _toast: ToastService,
+    public storage : Storage
   ) {
     this.revenueShareForm = this._fb.group({
       country: new FormControl('', Validators.required),

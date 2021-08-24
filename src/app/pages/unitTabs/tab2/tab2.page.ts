@@ -29,12 +29,12 @@ export class Tab2Page  implements OnInit {
   selectedSlider: any;
 
   constructor(
-    private router: Router,
-    private _apiService: ApiService,
-    private _loader: LoaderService,
-    private _gs: GlobalService,
-    private storage : Storage,
-    private _toast: ToastService
+    public router: Router,
+    public _apiService: ApiService,
+    public _loader: LoaderService,
+    public _gs: GlobalService,
+    public storage : Storage,
+    public _toast: ToastService
   ) {
 
     this._gs.getUpdatedTabs().subscribe(status => {

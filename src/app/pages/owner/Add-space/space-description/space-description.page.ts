@@ -27,15 +27,15 @@ export class SpaceDescriptionPage implements OnInit {
 
   
   constructor(
-    private loader: LoaderService,
-    private route: ActivatedRoute,
+    public loader: LoaderService,
+    public route: ActivatedRoute,
     public alrtCtrl: AlertController,
-    private router: Router,
-    private _api: ApiService,
+    public router: Router,
+    public _api: ApiService,
     public toast: ToastService,
-    private _gs: GlobalService,
-    private _fb: FormBuilder,
-    private storage : Storage
+    public _gs: GlobalService,
+    public _fb: FormBuilder,
+    public storage : Storage
     
   ) { 
 

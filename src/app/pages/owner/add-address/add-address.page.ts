@@ -26,9 +26,9 @@ export class AddAddressPage implements OnInit {
   priviousPage: any = '';
   
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private nativeGeocoder: NativeGeocoder
+    public router: Router,
+    public route: ActivatedRoute,
+    public nativeGeocoder: NativeGeocoder
   ) { }
 
   ngOnInit() {

@@ -30,15 +30,15 @@ export class SpaceDetailsPage implements OnInit {
   orgId: any;
 
   constructor(
-    private router: Router,
-    private _fb: FormBuilder,
-    private _apiService: ApiService,
-    private route: ActivatedRoute,
+    public router: Router,
+    public _fb: FormBuilder,
+    public _apiService: ApiService,
+    public route: ActivatedRoute,
     public alrtCtrl: AlertController,
-    private _loader: LoaderService,
-    private storage : Storage,
-    private _toast : ToastService,
-    private _zone:NgZone
+    public _loader: LoaderService,
+    public storage : Storage,
+    public _toast : ToastService,
+    public _zone:NgZone
   ) {
     this.route.queryParams.subscribe(params => {
       if (params) {

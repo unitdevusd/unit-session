@@ -38,16 +38,16 @@ export class BookingDetailPage implements OnInit {
   amenities: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private _api: ApiService,
-    private alert: ToastService,
-    private refresh: GlobalService,
-    private alrtCtrl: AlertController,
-    private loader: LoaderService,
-    private storage: Storage,
-    private navController: NavController,
-    private _gs: GlobalService
+    public route: ActivatedRoute,
+    public router: Router,
+    public _api: ApiService,
+    public alert: ToastService,
+    public refresh: GlobalService,
+    public alrtCtrl: AlertController,
+    public loader: LoaderService,
+    public storage: Storage,
+    public navController: NavController,
+    public _gs: GlobalService
   ) {
 
     this.route.params.subscribe(params => {

@@ -18,6 +18,8 @@ import { CalendarModule } from 'ion2-calendar';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { AnalyticsService } from './services/analytics.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -31,7 +33,9 @@ import { AnalyticsService } from './services/analytics.service';
     HttpClientModule, 
     CalendarModule,
     
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,

@@ -13,15 +13,15 @@ import { config,URL,KEY } from '../../config/config';
 })
 export class SelectRolePage implements OnInit {
   signInData: any;
-  private url: any = config.url;
+  public url: any = config.url;
   roles: any = [];
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private _apiService: ApiService,
-    private alertCtrl : AlertController,
-    private _toast : ToastService,
-    private _loader : LoaderService
+    public router: Router,
+    public route: ActivatedRoute,
+    public _apiService: ApiService,
+    public alertCtrl : AlertController,
+    public _toast : ToastService,
+    public _loader : LoaderService
   ) {
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {

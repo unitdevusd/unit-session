@@ -22,12 +22,12 @@ export class AppComponent {
   networkListener: PluginListenerHandle;
 
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private _loader: LoadingController,
-    private fcmService: FcmService,
-    private analyticsService: AnalyticsService
+    public platform: Platform,
+    public splashScreen: SplashScreen,
+    public statusBar: StatusBar,
+    public _loader: LoadingController,
+    public fcmService: FcmService,
+    public analyticsService: AnalyticsService
   ) {
     this.initializeApp();
   }

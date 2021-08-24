@@ -16,23 +16,23 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class MySpacesPage implements OnInit {
 
-  private url: any = config.url;
-  private placesList: any = [];
-  private token: any;
+  public url: any = config.url;
+  public placesList: any = [];
+  public token: any;
   userName: string = '';
   lastName: any;
   orgId: any;
   additionalInfo: boolean = false;
   
   constructor(
-    private _apiService: ApiService,
-    private router: Router,
+    public _apiService: ApiService,
+    public router: Router,
     public alrtCtrl: AlertController,
-    private _gs: GlobalService,
-    private socialSharing: SocialSharing,
-    private _loader: LoaderService,
-    private storage : Storage,
-    private _toast : ToastService
+    public _gs: GlobalService,
+    public socialSharing: SocialSharing,
+    public _loader: LoaderService,
+    public storage : Storage,
+    public _toast : ToastService
   ) { 
     this._gs.getUpdatedTabs().subscribe(status =>{
       if(status){

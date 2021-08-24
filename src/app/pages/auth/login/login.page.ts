@@ -24,18 +24,18 @@ const { Device } = Plugins;
 })
 export class LoginPage implements OnInit {
 
-  private loginForm: FormGroup;
-  private url: any = config.url;
-  private  loginUrl = URL.signIn;
+  public loginForm: FormGroup;
+  public url: any = config.url;
+  public  loginUrl = URL.signIn;
   priviousUrl: any;
   constructor(
-    private formBuilder: FormBuilder,
-    private alertCtrl : AlertController,
-    private _apiService: ApiService,
-    private storage: Storage,
-    private router: Router,
-    private _gs : GlobalService,
-    private route: ActivatedRoute
+    public formBuilder: FormBuilder,
+    public alertCtrl : AlertController,
+    public _apiService: ApiService,
+    public storage: Storage,
+    public router: Router,
+    public _gs : GlobalService,
+    public route: ActivatedRoute
     ) {
 
       this.route.queryParams.subscribe((params) => {

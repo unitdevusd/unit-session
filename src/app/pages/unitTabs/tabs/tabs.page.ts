@@ -23,9 +23,9 @@ export class TabsPage {
   deviceInfo: any;
 
   constructor(
-    private _gs: GlobalService,
-    private storage : Storage,
-    private navController: NavController
+    public _gs: GlobalService,
+    public storage : Storage,
+    public navController: NavController
   ) {
 
      // set on bais of notifications

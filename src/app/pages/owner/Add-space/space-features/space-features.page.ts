@@ -37,16 +37,16 @@ export class SpaceFeaturesPage implements OnInit {
   orgId: any;
   
   constructor(
-    private router: Router,
-    private _api: ApiService,
-    private route: ActivatedRoute,
+    public router: Router,
+    public _api: ApiService,
+    public route: ActivatedRoute,
     public toast: ToastService,
-    private loader: LoaderService,
-    private _gs: GlobalService,
+    public loader: LoaderService,
+    public _gs: GlobalService,
     public alrtCtrl: AlertController,
     public actionSheetController: ActionSheetController,
-    private storage : Storage,
-    private zone : NgZone
+    public storage : Storage,
+    public zone : NgZone
   ) { 
 
     this.route.queryParams.subscribe(params => {

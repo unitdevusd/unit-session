@@ -12,12 +12,12 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  private extractData(res) {
+  public extractData(res) {
     const body = res;
     return body || {};
   }
 
-  private handleError(error: HttpErrorResponse) {
+  public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {

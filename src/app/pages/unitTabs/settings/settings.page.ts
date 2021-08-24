@@ -12,11 +12,11 @@ import { Storage } from '@ionic/storage';
 })
 export class SettingsPage implements OnInit {
 
-  private url: any = config.url;
+  public url: any = config.url;
   token: any;
   profileImage : any = "/assets/imgs/dummyUser.png";
 
-  private adminPages = [
+  public adminPages = [
     {
       title: 'Edit Profile',
       url: '/edit-profile',
@@ -64,11 +64,11 @@ export class SettingsPage implements OnInit {
   contact: any;
   orgId: any;
   constructor(
-    private _gs: GlobalService,
-    private navController: NavController,
+    public _gs: GlobalService,
+    public navController: NavController,
     public alertController: AlertController,
-    private api: ApiService,
-    private storage: Storage
+    public api: ApiService,
+    public storage: Storage
   ) { }
 
   ngOnInit() {

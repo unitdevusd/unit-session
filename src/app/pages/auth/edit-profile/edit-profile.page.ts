@@ -23,21 +23,21 @@ export class EditProfilePage implements OnInit {
   lastName: any;
   image: string;
   imageResponse: any;
-  private url: any = config.url;
+  public url: any = config.url;
   token: any;
   base64Image: string;
   orgId: any;
 
 
   constructor(
-    private formBuilder: FormBuilder,
-    private storage: Storage,
-    private _loader: LoaderService,
-    private _apiService: ApiService,
-    private _toast: ToastService,
-    private _global: GlobalService,
-    private alertCtrl: AlertController,
-    private zone: NgZone
+    public formBuilder: FormBuilder,
+    public storage: Storage,
+    public _loader: LoaderService,
+    public _apiService: ApiService,
+    public _toast: ToastService,
+    public _global: GlobalService,
+    public alertCtrl: AlertController,
+    public zone: NgZone
   ) {
     this.editProfile = this.formBuilder.group({
       firstName: new FormControl('', Validators.required),

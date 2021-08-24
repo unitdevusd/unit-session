@@ -12,14 +12,14 @@ import { config, configEmail,URL } from '../../config/config';
 })
 export class ForgotPasswordPage implements OnInit {
 
-  private fp: FormGroup;
-  private url: any = config.url;
+  public fp: FormGroup;
+  public url: any = config.url;
   
   
   constructor(
-    private formBuilder: FormBuilder,
-    private _apiService : ApiService,
-    private alertCtrl : AlertController
+    public formBuilder: FormBuilder,
+    public _apiService : ApiService,
+    public alertCtrl : AlertController
   ) { 
 
     this.fp = this.formBuilder.group({

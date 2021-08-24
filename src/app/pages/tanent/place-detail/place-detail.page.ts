@@ -22,7 +22,7 @@ export class PlaceDetailPage implements OnInit {
 
   @ViewChild("map", { static: false }) mapElement: ElementRef;
 
-  private url: any = config.url;
+  public url: any = config.url;
   image: any;
   amenities: any = [];
   reviewList: any = [];
@@ -38,13 +38,13 @@ export class PlaceDetailPage implements OnInit {
 
   
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private modalCtrl : ModalController,
-    private loader: LoaderService,
-    private _api: ApiService,
-    private storage : Storage,
-    private _gs : GlobalService
+    public route: ActivatedRoute,
+    public router: Router,
+    public modalCtrl : ModalController,
+    public loader: LoaderService,
+    public _api: ApiService,
+    public storage : Storage,
+    public _gs : GlobalService
   ) { 
     
 

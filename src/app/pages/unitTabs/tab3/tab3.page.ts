@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 })
 export class Tab3Page implements OnInit {
 
-  private url: any = config.url;
+  public url: any = config.url;
   notificationList: any = [];
   loading: boolean;
   logged: boolean = false;
@@ -21,11 +21,11 @@ export class Tab3Page implements OnInit {
   orgId: any;
   text : string = `No notifications.`;
   constructor( 
-    private router: Router,
-    private _apiService: ApiService,
-    private _gs: GlobalService,
-    private storage : Storage,
-    private _toast : ToastService
+    public router: Router,
+    public _apiService: ApiService,
+    public _gs: GlobalService,
+    public storage : Storage,
+    public _toast : ToastService
   ){
     this._gs.getUpdatedTabs().subscribe(status => {
       if(status){

@@ -51,14 +51,14 @@ export class SpacePropertiesPage implements OnInit {
 
 
   constructor(
-    private router: Router,
-    private _api: ApiService,
-    private route: ActivatedRoute,
+    public router: Router,
+    public _api: ApiService,
+    public route: ActivatedRoute,
     public toast: ToastService,
-    private _loader: LoaderService,
-    private _gs: GlobalService,
+    public _loader: LoaderService,
+    public _gs: GlobalService,
     public alrtCtrl: AlertController,
-    private storage: Storage,
+    public storage: Storage,
     public _zone : NgZone
   ) { }
 
