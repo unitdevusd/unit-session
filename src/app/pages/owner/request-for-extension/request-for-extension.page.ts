@@ -18,11 +18,11 @@ export class RequestForExtensionPage implements OnInit {
   token: any;
   
   constructor(
-    public router: Router,
-    public _api: ApiService,
-    public route: ActivatedRoute,
-    public storage : Storage,
-    public toast: ToastService
+    private router: Router,
+    private _api: ApiService,
+    private route: ActivatedRoute,
+    private storage : Storage,
+    private toast: ToastService
   ) { }
 
   ngOnInit() {

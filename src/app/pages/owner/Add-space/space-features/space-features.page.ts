@@ -37,16 +37,16 @@ export class SpaceFeaturesPage implements OnInit {
   orgId: any;
   
   constructor(
-    public router: Router,
-    public _api: ApiService,
-    public route: ActivatedRoute,
+    private router: Router,
+    private _api: ApiService,
+    private route: ActivatedRoute,
     public toast: ToastService,
-    public loader: LoaderService,
-    public _gs: GlobalService,
+    private loader: LoaderService,
+    private _gs: GlobalService,
     public alrtCtrl: AlertController,
     public actionSheetController: ActionSheetController,
-    public storage : Storage,
-    public zone : NgZone
+    private storage : Storage,
+    private zone : NgZone
   ) { 
 
     this.route.queryParams.subscribe(params => {
@@ -174,7 +174,8 @@ export class SpaceFeaturesPage implements OnInit {
         amenities: this.selectedAmenities,
         images: this.imageResponse,
         videos: this.videoUrls,
-        additionalInfo : this.spaceDetails.additionalInfo
+        additionalInfo : this.spaceDetails.additionalInfo,
+        spaceTypeName : this.spaceDetails.spaceTypeName
       }
       this.addPlaceApi(params);
     }
@@ -221,7 +222,8 @@ export class SpaceFeaturesPage implements OnInit {
         amenities: this.selectedAmenities,
         images: this.imageResponse,
         videos: this.videoUrls,
-        additionalInfo : this.spaceDetails.additionalInfo
+        additionalInfo : this.spaceDetails.additionalInfo,
+        spaceTypeName : this.spaceDetails.spaceTypeName
       }
       console.log(params);
       console.log('In space-features',this.spaceId);

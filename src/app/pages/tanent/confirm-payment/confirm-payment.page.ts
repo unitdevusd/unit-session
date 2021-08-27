@@ -12,9 +12,9 @@ export class ConfirmPaymentPage implements OnInit {
   placeInfo: any;
 
   constructor(
-    public route: ActivatedRoute,
-    public router: Router,
-    public _gs : GlobalService
+    private route: ActivatedRoute,
+    private router: Router,
+    private _gs : GlobalService
   ) { 
     this.route.queryParams.subscribe(params => {
       if(params)

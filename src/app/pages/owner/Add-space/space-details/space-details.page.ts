@@ -28,17 +28,19 @@ export class SpaceDetailsPage implements OnInit {
   selectedspaceType : any;
   token: any;
   orgId: any;
+  displayOther: boolean;
+  spaceTypeName : any = '';
 
   constructor(
-    public router: Router,
-    public _fb: FormBuilder,
-    public _apiService: ApiService,
-    public route: ActivatedRoute,
+    private router: Router,
+    private _fb: FormBuilder,
+    private _apiService: ApiService,
+    private route: ActivatedRoute,
     public alrtCtrl: AlertController,
-    public _loader: LoaderService,
-    public storage : Storage,
-    public _toast : ToastService,
-    public _zone:NgZone
+    private _loader: LoaderService,
+    private storage : Storage,
+    private _toast : ToastService,
+    private _zone:NgZone
   ) {
     this.route.queryParams.subscribe(params => {
       if (params) {
@@ -114,6 +116,7 @@ addSpaceInfo(spaceDetails: any) {
   this.addPlace.controls['lenght'].setValue(spaceDetails.size.lenght);
   this.addPlace.controls['breadth'].setValue(spaceDetails.size.breadth);
   this.addPlace.controls['height'].setValue(spaceDetails.size.height);
+  this.spaceTypeName = spaceDetails.spaceTypeName;
  })
 }
 
@@ -153,7 +156,8 @@ next(index){
       videos: this.spaceDetails.videos,
       amenities: this.spaceDetails.amenities,
       pricing: this.spaceDetails.pricing,
-      additionalInfo : this.spaceDetails.additionalInfo
+      additionalInfo : this.spaceDetails.additionalInfo,
+      spaceTypeName : this.spaceTypeName
     }
 
 
@@ -211,11 +215,21 @@ next(index){
             this._loader.dismiss();
             if (result.success) {
               this.spaceType = result.data.list.spaceType;
+              this.spaceType.push({ _id: "0","spaceType": "others"});
               this.addSpaceInfo(this.spaceDetails);
             } else {
               this._toast.presentToast(result.message);
             }
           }
         )
+      }
+
+      onSelectChange(ev){
+        if(ev.detail.value == '0'){
+         this.displayOther = true;
+       }else{
+        this.displayOther = false;
+        this.spaceTypeName = '';
+       }
       }
 }

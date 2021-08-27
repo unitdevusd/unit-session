@@ -51,14 +51,14 @@ export class SpacePropertiesPage implements OnInit {
 
 
   constructor(
-    public router: Router,
-    public _api: ApiService,
-    public route: ActivatedRoute,
+    private router: Router,
+    private _api: ApiService,
+    private route: ActivatedRoute,
     public toast: ToastService,
-    public _loader: LoaderService,
-    public _gs: GlobalService,
+    private _loader: LoaderService,
+    private _gs: GlobalService,
     public alrtCtrl: AlertController,
-    public storage: Storage,
+    private storage: Storage,
     public _zone : NgZone
   ) { }
 
@@ -177,7 +177,7 @@ export class SpacePropertiesPage implements OnInit {
   }
 
   addSpaceInfo(spaceDetails: any) {
-    console.log('In add spaceInfo', spaceDetails);
+    console.log('In add spaceInfoHelloo', spaceDetails);
     this.spaceId = spaceDetails._id;
     this.selectedAccessType = spaceDetails.timeAccessStatus;
     this.selectedtimeSlotType = spaceDetails.accessStatus;
@@ -209,7 +209,7 @@ export class SpacePropertiesPage implements OnInit {
     this.navigate(index);
   }
   navigate(index) {
-    const params = {
+   const params = {
       token: this.token,
       orgId: this.orgId,
       name: this.spaceDetails.name,
@@ -231,9 +231,10 @@ export class SpacePropertiesPage implements OnInit {
         daily: parseInt(this.dailyPrice),
         weekly: parseInt(this.weeklyPrice),
         monthly: parseInt(this.monthlyPrice)
-      }
+      },
+      spaceTypeName : this.spaceDetails.spaceTypeName
     }
-    console.log('In space-prop', this.spaceId);
+    console.log('In space-prop', params);
     if (this.spaceId) {
       params['_id'] = this.spaceId;
     }
@@ -250,7 +251,6 @@ export class SpacePropertiesPage implements OnInit {
 
 
   addSpace(index) {
-    console.log(index);
     if (this.token) {
       const params = {
         token: this.token,
@@ -274,10 +274,9 @@ export class SpacePropertiesPage implements OnInit {
           daily: parseInt(this.dailyPrice),
           weekly: parseInt(this.weeklyPrice),
           monthly: parseInt(this.monthlyPrice)
-        }
+        },
+        spaceTypeName : this.spaceDetails.spaceTypeName
       }
-      console.log(params);
-
       this.addPlaceApi(params);
     }
   }

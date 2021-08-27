@@ -18,10 +18,10 @@ const { Camera } = Plugins;
 })
 export class AddFeaturePage implements OnInit {
 
-  public url: any = config.url;
+  private url: any = config.url;
   amenities: any = [];
   addAmenity: boolean = false;
-  public addAmenityForm: FormGroup;
+  private addAmenityForm: FormGroup;
   token: string;
   amenityId: any = '';
   btnText: string = 'Add Feature';
@@ -29,13 +29,13 @@ export class AddFeaturePage implements OnInit {
   orgId: any;
 
   constructor(
-    public _apiService: ApiService,
-    public _fb: FormBuilder,
-    public loader: LoaderService,
-    public alertCtrl: AlertController,
-    public _toast: ToastService,
-    public storage : Storage,
-    public zone: NgZone,
+    private _apiService: ApiService,
+    private _fb: FormBuilder,
+    private loader: LoaderService,
+    private alertCtrl: AlertController,
+    private _toast: ToastService,
+    private storage : Storage,
+    private zone: NgZone,
     public actionSheetController: ActionSheetController
   ) {
     this.addAmenityForm = this._fb.group({

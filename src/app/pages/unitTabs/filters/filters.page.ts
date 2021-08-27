@@ -22,7 +22,7 @@ export class FiltersPage implements OnInit {
   
   @Input() filters: any;
 
-  public url: any = config.url;
+  private url: any = config.url;
   features: any = [];
   timeSlotTypeList: any = [];
   public dates = {
@@ -41,13 +41,13 @@ export class FiltersPage implements OnInit {
   address: any;
 
   constructor(
-    public api: ApiService,
-    public _gs: GlobalService,
+    private api: ApiService,
+    private _gs: GlobalService,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public zone : NgZone,
-    public nativeGeocoder: NativeGeocoder,
-    public geolocation : Geolocation
+    private zone : NgZone,
+    private nativeGeocoder: NativeGeocoder,
+    private geolocation : Geolocation
   ) { 
 
      // get current location

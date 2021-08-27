@@ -22,12 +22,12 @@ export class Tab4Page implements OnInit {
   orgId: any;
 
   constructor(
-    public _apiService: ApiService,
-    public _loader: LoaderService,
-    public router: Router,
-    public _gs: GlobalService,
-    public storage: Storage,
-    public _toast: ToastService
+    private _apiService: ApiService,
+    private _loader: LoaderService,
+    private router: Router,
+    private _gs: GlobalService,
+    private storage: Storage,
+    private _toast: ToastService
   ) { }
 
   ngOnInit() {

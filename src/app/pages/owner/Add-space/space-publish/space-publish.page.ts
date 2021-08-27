@@ -22,14 +22,14 @@ export class SpacePublishPage implements OnInit {
   orgId: any;
 
   constructor(
-    public router: Router,
-    public _api: ApiService,
-    public route: ActivatedRoute,
+    private router: Router,
+    private _api: ApiService,
+    private route: ActivatedRoute,
     public toast: ToastService,
-    public loader: LoaderService,
-    public _gs: GlobalService,
+    private loader: LoaderService,
+    private _gs: GlobalService,
     public alrtCtrl: AlertController,
-    public storage: Storage
+    private storage: Storage
   ) {
 
     this.route.queryParams.subscribe(params => {

@@ -50,26 +50,20 @@ export class Tab1Page implements OnInit {
   isfirst : boolean = false;
   user : string = 'User';
   clearFilter: boolean = false;
-  height: number;
+
 
   constructor(
-    public router: Router,
-    public _apiService: ApiService,
-    public _loader: LoaderService,
-    public _gs: GlobalService,
-    public storage : Storage,
-    public _toast: ToastService,
-    public geolocation : Geolocation,
-    public nativeGeocoder: NativeGeocoder,
+    private router: Router,
+    private _apiService: ApiService,
+    private _loader: LoaderService,
+    private _gs: GlobalService,
+    private storage : Storage,
+    private _toast: ToastService,
+    private geolocation : Geolocation,
+    private nativeGeocoder: NativeGeocoder,
     public zone: NgZone,
-    public modalCtrl : ModalController,
-    platform: Platform) {
-      platform.ready().then(() => {
-        console.log('Width: ' + platform.width());
-        this.height = platform.height();
-        console.log('Height: ' + platform.height());
-      });
-    
+    public modalCtrl : ModalController) {
+      
     // get current location
     setTimeout(() =>{ 
       this.getCurrentLocation();
@@ -214,12 +208,9 @@ export class Tab1Page implements OnInit {
     if (Object.keys(this.filters).length === 0) {
       this.hasFilter = false;
       this.displayName = true;
-      this.size = 10;
-      this.sizeFilter = 2;
     } else {
       this.hasFilter = true;
       this.displayName = false;
-      this.size = 9;
     }
   }
 
@@ -244,9 +235,8 @@ export class Tab1Page implements OnInit {
     this.autocomplete.input = '';
   }
 
-  checkFocus() {
-    console.log('focus');
-  }
+  checkFocus() {}
+  
   async openFilter() {
     const modal = await this.modalCtrl.create({
       component: FiltersPage,
@@ -259,34 +249,19 @@ export class Tab1Page implements OnInit {
   }
 
   place(place) {
-    console.log('@@', place);
     let navigationExtras: NavigationExtras = {
       queryParams: {
         special: JSON.stringify(place)
       }
     };
-    console.log(navigationExtras);
     this.router.navigate(['place-detail'], navigationExtras);
   }
 
 
   spaceClick(item) {
-    this.clearFilter = true;
-    if (item.status) {
-      item.status = false;
-      const index: number = this.spaceFilters.indexOf(item._id);
-      if (index !== -1) {
-        this.spaceFilters.splice(index, 1);
-      }
-    } else {
-      item.status = true;
-      this.spaceFilters.push(item._id);
-    };
-    console.log(this.filters['spaceType']);
-    if (this.filters['spaceType'] == undefined) {
-      this.filters['spaceType'] = '';
-    }
-    this.filters['spaceType'] = this.spaceFilters ? this.spaceFilters : '';
+    console.log(item);
+    this.filters['spaceType'] = item ? item : [];
+    console.log(this.filters);
     this.setIcon();
     this.getPlacesList(this.filters);
   }

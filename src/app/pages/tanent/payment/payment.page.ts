@@ -23,12 +23,12 @@ export class PaymentPage implements OnInit {
   orgId: any;
 
   constructor(
-    public formBuilder: FormBuilder,
-    public api: ApiService,
-    public loader: LoaderService,
-    public _toast : ToastService,
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private loader: LoaderService,
+    private _toast : ToastService,
     public alertController: AlertController,
-    public storage : Storage
+    private storage : Storage
     ) {
     this.paymentForm = this.formBuilder.group({
       cardNumber: ['', Validators.compose([Validators.required])],

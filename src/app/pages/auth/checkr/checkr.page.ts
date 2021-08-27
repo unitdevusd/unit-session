@@ -23,14 +23,14 @@ export class CheckrPage implements OnInit {
   orgId: any;
   infoId: any;
   constructor(
-    public formBuilder: FormBuilder,
-    public router: Router,
-    public route: ActivatedRoute,
-    public _apiService: ApiService,
-    public _toast: ToastService,
-    public storage : Storage,
-    public _loader : LoaderService,
-    public _gs : GlobalService
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private _apiService: ApiService,
+    private _toast: ToastService,
+    private storage : Storage,
+    private _loader : LoaderService,
+    private _gs : GlobalService
   ) { 
     this.route.queryParams.subscribe(params => {
       if (params) {

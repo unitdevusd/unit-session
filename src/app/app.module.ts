@@ -17,10 +17,6 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { CalendarModule } from 'ion2-calendar';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
-import { AnalyticsService } from './services/analytics.service';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-
 
 
 @NgModule({
@@ -33,9 +29,7 @@ import { environment } from '../environments/environment';
     HttpClientModule, 
     CalendarModule,
     
-    IonicStorageModule.forRoot(),
-    
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
@@ -45,7 +39,6 @@ import { environment } from '../environments/environment';
     SocialSharing,
     AppVersion,
     Network,
-    AnalyticsService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

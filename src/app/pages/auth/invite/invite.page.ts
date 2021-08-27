@@ -27,13 +27,13 @@ export class InvitePage implements OnInit {
   backgroundImage: any;
 
   constructor(
-    public fb: FormBuilder,
-    public storage: Storage,
-    public _api: ApiService,
-    public router: Router,
+    private fb: FormBuilder,
+    private storage: Storage,
+    private _api: ApiService,
+    private router: Router,
     platform: Platform,
-    public loader: LoaderService,
-    public alertCtrl: AlertController
+    private loader: LoaderService,
+    private alertCtrl: AlertController
   ) {
     platform.ready().then(() => {
       this.width = platform.width();

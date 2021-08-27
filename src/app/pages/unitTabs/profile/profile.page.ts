@@ -7,6 +7,8 @@ import { ToastService } from 'src/app/services/toast.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Plugins,Browser } from '@capacitor/core';
 import { AppVersion } from '@ionic-native/app-version/ngx';
+import { ApiService } from 'src/app/services/api-service.service';
+import { config, CTA } from '../../config/config';
 
 const { Device } = Plugins;
 
@@ -16,6 +18,7 @@ const { Device } = Plugins;
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  private url: any = config.url;
   logged: boolean = false;
   public settingPages = [
     {
@@ -43,16 +46,20 @@ export class ProfilePage implements OnInit {
     canviewAdditionalInfo : false,
     canSendInvite : false
   };
+  phone: any;
+  orgId: any;
+  userId: any;
 
   constructor(
-    public storage: Storage,
-    public _gs: GlobalService,
-    public alertCtrl : AlertController,
-    public router : Router,
-    public _toast : ToastService,
-    public socialSharing: SocialSharing,
-    public appVersion: AppVersion,
-    public navController: NavController
+    private storage: Storage,
+    private _gs: GlobalService,
+    private alertCtrl : AlertController,
+    private router : Router,
+    private _toast : ToastService,
+    private socialSharing: SocialSharing,
+    private appVersion: AppVersion,
+    private navController: NavController,
+    private _apiService : ApiService
   ) {
     this.appVersion.getVersionCode().then(res => {
       this.version = res;
@@ -88,6 +95,7 @@ export class ProfilePage implements OnInit {
     this.permission.canSendInvite =  this.permissionlist.includes("unit.invite.canSendEmail" || "unit.invite.canSendSMS");
   }
   getUserData(user?: any) {
+    console.log(user);
     if (user) {
       this.updateUser(user);
     } else {
@@ -111,6 +119,7 @@ export class ProfilePage implements OnInit {
     this.email = user.email;
     this.name = user.firstName;
     this.lastName = user.lastName;
+    this.phone = user.phone;
     if (user.profilePic) {
       this.profileImage = user.profilePic;
     } else {
@@ -170,7 +179,52 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['invite']);
   }
 
-  consultLawyer(){
+  async consultLawyer(){
+    const alert = await this.alertCtrl.create({
+      header: 'Consult Lawyer',
+      message: 'We will set you up with a free consultation before recommending you to a legal professional Is this OK?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => { }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            this.consult();
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  consult() {
+     this.storage.get("org").then((org) => {
+      if (org) {
+        this.orgId = org;
+        this.storage.get("loggedUserId").then((userId) => {
+          this.userId = userId;
+        });
+      }
+    });
+    let type = 'Legal Advice.';
+    let cta_Data = {
+      meta: {
+        emailId: this.email,
+        firstName: this.name,
+        lastName: this.lastName,
+        contactNumber: this.phone
+      },
+      subject: "Legal Advice.",
+      message: "new lead"
+    };
+    this._apiService
+      .postRequest(this.url + CTA.url + this.userId + "/" + this.orgId + "?type=" + type + "&isOpportunity=true", cta_Data).subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      )
     console.log('consult');
     this._toast.presentToast('Legal Team will contact you soon!');
   }

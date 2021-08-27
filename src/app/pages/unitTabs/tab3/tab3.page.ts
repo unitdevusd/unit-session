@@ -13,19 +13,21 @@ import { Storage } from '@ionic/storage';
 })
 export class Tab3Page implements OnInit {
 
-  public url: any = config.url;
+  private url: any = config.url;
   notificationList: any = [];
   loading: boolean;
   logged: boolean = false;
   token: any;
   orgId: any;
   text : string = `No notifications.`;
+  msg : string = `No messages Yet.`;
+  segment : string = 'notifications';
   constructor( 
-    public router: Router,
-    public _apiService: ApiService,
-    public _gs: GlobalService,
-    public storage : Storage,
-    public _toast : ToastService
+    private router: Router,
+    private _apiService: ApiService,
+    private _gs: GlobalService,
+    private storage : Storage,
+    private _toast : ToastService
   ){
     this._gs.getUpdatedTabs().subscribe(status => {
       if(status){
@@ -86,9 +88,12 @@ export class Tab3Page implements OnInit {
     };
     this._apiService.postRequest(this.url + UNITURL.allNotifications, params).subscribe(
       async (result) => {
+        console.log(result);
         if (result.success) {
           if(result.data.length){
-            this.notificationList = result.data.reverse();
+               console.log(result.data);
+               this.notificationList = result.data;
+               this.notificationList.reverse();
           }
           setTimeout(() => {
             this.loading = false;
@@ -168,6 +173,10 @@ export class Tab3Page implements OnInit {
     }, 100);
   }
   
+  segmentChanged(ev){
+    console.log(ev.detail.value);
+    this.segment = ev.detail.value;
+  }
 }
   
 

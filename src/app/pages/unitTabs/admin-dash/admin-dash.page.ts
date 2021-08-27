@@ -10,13 +10,13 @@ import { Storage } from '@ionic/storage';
 })
 export class AdminDashPage implements OnInit {
 
-  public url: any = config.url;
+  private url: any = config.url;
   count: any;
   token: any;
   orgId: any;
   constructor(
-    public _api: ApiService,
-    public storage : Storage,
+    private _api: ApiService,
+    private storage : Storage,
   ) { }
 
   ngOnInit() {

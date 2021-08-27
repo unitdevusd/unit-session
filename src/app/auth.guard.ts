@@ -7,8 +7,8 @@ import { Storage } from '@ionic/storage';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    public storage: Storage,
-    public router: Router
+    private storage: Storage,
+    private router: Router
   ){}
 
   canActivate(

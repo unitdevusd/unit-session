@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api-service.service';
-import { GlobalService } from 'src/app/services/global.service';
-// import { FcmService } from 'src/app/services/fcm.service';
-import { config, KEY, UNITURL } from '../config/config';
 
 
 @Component({
@@ -12,16 +8,7 @@ import { config, KEY, UNITURL } from '../config/config';
   styleUrls: ['./intro.page.scss'],
 })
 export class IntroPage implements OnInit {
-
-  public url: any = config.url;
-  
-  constructor(
-    public router: Router,
-    public _apiService : ApiService,
-    public _gs: GlobalService
-    ) { 
-      
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
   

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { GlobalService } from 'src/app/services/global.service';
 import { Storage } from '@ionic/storage';
-import { IonTabs, NavController } from '@ionic/angular';
+import { IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -23,9 +23,8 @@ export class TabsPage {
   deviceInfo: any;
 
   constructor(
-    public _gs: GlobalService,
-    public storage : Storage,
-    public navController: NavController
+    private _gs: GlobalService,
+    private storage : Storage
   ) {
 
      // set on bais of notifications
@@ -67,7 +66,6 @@ export class TabsPage {
     });
   }
   setPermissions(){
-    console.log(this.permissionlist);
     if(this.permissionlist){
       this.permissions.canRetriveOwnBookings = this.permissionlist.includes("unit.booking.canRetriveOwnBookings");
       this.permissions.canCreateSpace = this.permissionlist.includes("unit.space.canCreate");

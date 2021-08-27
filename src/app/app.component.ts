@@ -5,8 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FcmService } from './services/fcm.service';
 import { Plugins, NetworkStatus, PluginListenerHandle } from '@capacitor/core';
-import { AnalyticsService } from './services/analytics.service';
-
 
 const { Network} = Plugins;
 
@@ -15,25 +13,23 @@ const { Network} = Plugins;
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
-  })
+})
 export class AppComponent {
 
   networkStatus: NetworkStatus;
   networkListener: PluginListenerHandle;
 
   constructor(
-    public platform: Platform,
-    public splashScreen: SplashScreen,
-    public statusBar: StatusBar,
-    public _loader: LoadingController,
-    public fcmService: FcmService,
-    public analyticsService: AnalyticsService
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private _loader: LoadingController,
+    private fcmService: FcmService
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.analyticsService.startTrackerWithId('278622255');
     this.platform.ready().then(async () => {
 
       this.statusBar.styleDefault();
@@ -44,11 +40,10 @@ export class AppComponent {
           this._loader.dismiss();
         } else {
           this.presentLoading('You are offline. Waiting for internet connection.');
-          }
+        }
       });
       this.networkStatus = await Network.getStatus();
       // Trigger the push setup 
-
       this.fcmService.initPush();
     });
   }

@@ -10,14 +10,14 @@ import { config,URL } from '../../config/config';
 })
 export class SignupPage implements OnInit {
 
-  public signupForm: FormGroup;
-  public contact: any;
+  private signupForm: FormGroup;
+  private contact: any;
   url: any = config.url;
 
   
   constructor(private formBuilder: FormBuilder,
-    public router: Router,
-    public route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute
     ) {
       this.signupForm = this.formBuilder.group({
         firstName: new FormControl('', Validators.required),

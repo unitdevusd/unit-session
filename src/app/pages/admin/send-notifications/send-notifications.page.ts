@@ -14,17 +14,17 @@ import { Storage } from '@ionic/storage';
 })
 export class SendNotificationsPage implements OnInit {
 
-  public notificationForm: FormGroup;
+  private notificationForm: FormGroup;
   url: any = config.url;
   token: any;
   orgId: any;
   
   constructor(
-    public formBuilder: FormBuilder,
-    public loader: LoaderService,
-    public api: ApiService,
-    public _toast: ToastService,
-    public storage : Storage
+    private formBuilder: FormBuilder,
+    private loader: LoaderService,
+    private api: ApiService,
+    private _toast: ToastService,
+    private storage : Storage
     ) { 
     this.notificationForm = this.formBuilder.group({
       title: new FormControl('', Validators.required),

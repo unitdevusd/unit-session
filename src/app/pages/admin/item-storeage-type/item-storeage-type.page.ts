@@ -14,7 +14,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ItemStoreageTypePage implements OnInit {
 
-  public url: any = config.url;
+  private url: any = config.url;
   storedItemType: any = [];
   addType: boolean = false;
   addItemTypeForm: FormGroup;
@@ -26,12 +26,12 @@ export class ItemStoreageTypePage implements OnInit {
 
 
   constructor(
-    public _apiService : ApiService,
-    public _fb: FormBuilder,
-    public loader: LoaderService,
-    public alertCtrl: AlertController,
-    public _toast: ToastService,
-    public storage : Storage
+    private _apiService : ApiService,
+    private _fb: FormBuilder,
+    private loader: LoaderService,
+    private alertCtrl: AlertController,
+    private _toast: ToastService,
+    private storage : Storage
   ) {
     this.addItemTypeForm = this._fb.group({
       name: new FormControl('', Validators.required),

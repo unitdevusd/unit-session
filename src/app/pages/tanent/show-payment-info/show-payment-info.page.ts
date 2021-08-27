@@ -55,15 +55,15 @@ export class ShowPaymentInfoPage implements OnInit {
 
 
   constructor(
-    public route: ActivatedRoute,
-    public api: ApiService,
-    public loader: LoaderService,
-    public router: Router,
+    private route: ActivatedRoute,
+    private api: ApiService,
+    private loader: LoaderService,
+    private router: Router,
     public _gs: GlobalService,
-    public formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     public modalCtrl: ModalController,
-    public storage : Storage,
-    public _toast : ToastService
+    private storage : Storage,
+    private _toast : ToastService
   ) {
     this.paymentForm = this.formBuilder.group({
       cardNumber: ['', Validators.compose([Validators.required])],

@@ -17,10 +17,10 @@ const { Camera } = Plugins;
 })
 export class SpaceTypePage implements OnInit {
 
-  public url: any = config.url;
+  private url: any = config.url;
   placesType: any = [];
   addType: boolean = false;
-  public addPlaceTypeForm: FormGroup;
+  private addPlaceTypeForm: FormGroup;
   token: string;
   typeId: any = '';
   btnText: string = 'Add Space type';
@@ -29,13 +29,13 @@ export class SpaceTypePage implements OnInit {
   orgId: any;
 
   constructor(
-    public _api: ApiService,
-    public _fb: FormBuilder,
-    public loader: LoaderService,
-    public alertCtrl: AlertController,
-    public _toast: ToastService,
-    public storage : Storage,
-    public zone : NgZone
+    private _api: ApiService,
+    private _fb: FormBuilder,
+    private loader: LoaderService,
+    private alertCtrl: AlertController,
+    private _toast: ToastService,
+    private storage : Storage,
+    private zone : NgZone
   ) {
     this.addPlaceTypeForm = this._fb.group({
       type: new FormControl('', Validators.required),

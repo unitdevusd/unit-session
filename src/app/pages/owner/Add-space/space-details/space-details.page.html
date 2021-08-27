@@ -18,7 +18,7 @@
     <ion-list>
       <ion-item lines="none">
         <ion-label position="stacked">Name your Unit</ion-label>
-        <ion-input type="text" placeholder="Name" formControlName="name" class="height"></ion-input>
+        <ion-input type="text" placeholder="The Sparkle Space" formControlName="name" class="height"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">Location</ion-label>
@@ -26,16 +26,17 @@
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked" *ngIf="spaceType">Unit Type</ion-label>
-        <ion-select [(ngModel)]="selectedspaceType" [ngModelOptions]="{standalone: true}">
+        <ion-select [(ngModel)]="selectedspaceType" [ngModelOptions]="{standalone: true}"
+          (ionChange)="onSelectChange($event)">
           <ion-select-option [value]="s._id" *ngFor="let s of spaceType">
             {{s.spaceType}}
           </ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Description</ion-label>
-        <ion-textarea type="text" rows="4" cols="20" placeholder="Text here" formControlName="description">
-        </ion-textarea>
+      <ion-item lines="none" *ngIf="displayOther">
+        <ion-label position="stacked">Enter SpaceType</ion-label>
+        <ion-input type="text" placeholder="Enter SpaceType" [(ngModel)]="spaceTypeName" class="height"
+          [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
       <ion-list>
         <ion-label class="size-tt">Size <span>(Enter size in Feet)</span></ion-label>
@@ -62,6 +63,11 @@
           </ion-row>
         </ion-grid>
       </ion-list>
+      <ion-item lines="none">
+        <ion-label position="stacked">Description</ion-label>
+        <ion-textarea type="text" rows="4" cols="20" placeholder="Text here" formControlName="description">
+        </ion-textarea>
+      </ion-item>
     </ion-list>
   </form>
 </ion-content>

@@ -145,7 +145,6 @@
             <ion-label *ngIf="data.ownerInfo.profile.firstName">
               <h2> Owned by {{data?.ownerInfo?.profile.firstName}}</h2>
               <h3 *ngIf="data.ownerInfo.profile.description">{{data?.ownerInfo?.profile.description}}</h3>
-              <!-- We need to program the date text below to be dynamically generated -->
               <h3 *ngIf="!data.ownerInfo.profile.description">joined in may 2020</h3>
               <h3>
                 <img src="../../../../assets/imgs/awesome-star.png">
@@ -236,7 +235,7 @@
 <ion-footer>
   <ion-toolbar>
     <ion-button expand="block" color="unit-btn" shape="round" (click)="booking(data)">
-      Select Dates | ${{data.pricing.daily}}/day
+      Book Now | ${{data.pricing.daily}}/day
     </ion-button>
   </ion-toolbar>
 </ion-footer>

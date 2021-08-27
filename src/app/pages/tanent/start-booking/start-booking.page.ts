@@ -28,8 +28,8 @@ export class StartBookingPage implements OnInit {
   
 
   constructor(
-    public route: ActivatedRoute,
-    public router: Router,
+    private route: ActivatedRoute,
+    private router: Router,
     public navParams: NavParams,
     public modalCtrl : ModalController,
     public toast : ToastService

@@ -6,18 +6,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen class="ion-padding">
-  <div class="logo ion-text-center">
+  <div class="logo">
     <img _ngcontent-cmb-c7="" src="../../../../assets/imgs/logo.png">
   </div>
-
-<ion-row>
-  <ion-col>
-    <div class="ion-text-center">
-    <h2 class="name-txt">Log In</h2>
-  </div>
-  </ion-col>
-</ion-row>
-
   <ion-grid fixed style="height: 40%;">
     <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 80%;">
       <ion-col size="12" class="ion-text-center">
@@ -28,7 +19,7 @@
               <div class="left-icon">
                 <img src="../../../../assets/imgs/awesome-user-edit.png">
               </div>
-              <ion-input class="ion-text-left" placeholder="Username" type="email" formControlName="emailId"></ion-input>
+              <ion-input class="ion-text-left" placeholder="Email Address" type="email" formControlName="emailId"></ion-input>
             </ion-item>
           </ion-list>
           <ion-list class="line-input" mode="md">
@@ -42,7 +33,7 @@
           <ion-grid>
             <ion-row>
               <ion-col size="15" size-lg offset="3" class="ion-align-self-end">
-                <p class="forgot-pass ion-text-center">
+                <p class="forgot-pass">
                   <a routerLink="/forgot-password">Forgot Password?</a>
                 </p>
               </ion-col>

@@ -23,12 +23,12 @@ export class ExtendBookingPage implements OnInit {
   orgId: any;
 
   constructor(
-    public router: Router,
-    public _fb: FormBuilder,
-    public _api: ApiService,
-    public route: ActivatedRoute,
-    public toast : ToastService,
-    public storage : Storage
+    private router: Router,
+    private _fb: FormBuilder,
+    private _api: ApiService,
+    private route: ActivatedRoute,
+    private toast : ToastService,
+    private storage : Storage
   ) {
     this.setUpForm();
   }

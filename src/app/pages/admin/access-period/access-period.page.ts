@@ -17,10 +17,10 @@ export class AccessPeriodPage implements OnInit {
 
   
 
-  public url: any = config.url;
+  private url: any = config.url;
   placesType: any = [];
   addType: boolean = false;
-  public addPlaceTypeForm: FormGroup;
+  private addPlaceTypeForm: FormGroup;
   token: string;
   typeId: any = '';
   btnText: string = 'Add Access type';
@@ -28,12 +28,12 @@ export class AccessPeriodPage implements OnInit {
   orgId: any;
 
   constructor(
-    public _apiService: ApiService,
-    public _fb: FormBuilder,
-    public loader: LoaderService,
-    public alertCtrl: AlertController,
-    public _toast: ToastService,
-    public storage : Storage
+    private _apiService: ApiService,
+    private _fb: FormBuilder,
+    private loader: LoaderService,
+    private alertCtrl: AlertController,
+    private _toast: ToastService,
+    private storage : Storage
   ) {
     this.addPlaceTypeForm = this._fb.group({
       type: new FormControl('', Validators.required),

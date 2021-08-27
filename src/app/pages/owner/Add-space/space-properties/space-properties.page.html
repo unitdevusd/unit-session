@@ -17,7 +17,9 @@
     </ion-select>
   </ion-item>
   <ion-item lines="none">
-    <ion-label position="stacked">How often can a tenant access this space?</ion-label>
+    <ion-label position="stacked">
+      At what time of the day?
+    </ion-label>
     <ion-select [(ngModel)]="selectedtimeSlotType" (ionChange)="timeSlotSelected()" *ngIf="timeSlotType">
       <ion-select-option [value]="st._id" *ngFor="let st of timeSlotType">
         {{st.accessTime}}
@@ -25,14 +27,23 @@
     </ion-select>
   </ion-item>
   <ion-item lines="none">
-    <ion-label position="stacked">At what time of the day?</ion-label>
+    <ion-label position="stacked">How often can a tenant access this unit?</ion-label>
     <ion-select [(ngModel)]="selectedAccessType" (ionChange)="accessTypeSelected()" *ngIf="acccessType">
       <ion-select-option [value]="at._id" *ngFor="let at of acccessType">
         {{at.accessType}}
       </ion-select-option>
     </ion-select>
   </ion-item>
-  <h4 class="rent-tt">Rent for your Place</h4>
+  <h4 style="margin-left: 20px !important;">Add Discount for first Month</h4>
+  <ion-list>
+    <ion-select style="margin-left:15px; margin-right:15px" placeholder="Discount" [(ngModel)]="selectedDiscount"
+      (ionChange)="discountSelected()">
+      <ion-select-option [value]="d.value" *ngFor="let d of discount">
+        {{d.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-list>
+  <h4 class="rent-tt">Booking Rates Offered</h4>
   <ion-grid>
     <ion-row>
       <ion-col size="8">
@@ -44,7 +55,7 @@
         </ion-label>
       </ion-col>
       <ion-col size="4">
-        <ion-input class="input" [(ngModel)]="dailyPrice"> </ion-input>
+        <ion-input class="input" placeholder="$" [(ngModel)]="dailyPrice"> </ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -59,7 +70,7 @@
         </ion-label>
       </ion-col>
       <ion-col size="4">
-        <ion-input class="input" [(ngModel)]="weeklyPrice"> </ion-input>
+        <ion-input class="input" placeholder="$" [(ngModel)]="weeklyPrice"> </ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -74,19 +85,10 @@
         </ion-label>
       </ion-col>
       <ion-col size="4">
-        <ion-input class="input" [(ngModel)]="monthlyPrice"> </ion-input>
+        <ion-input class="input" placeholder="$" [(ngModel)]="monthlyPrice"> </ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <h4 style="margin-left: 32px !important;">Add Discount for first Month</h4>
-  <ion-list>
-    <ion-select style="margin-left:15px; margin-right:15px" placeholder="Discount" [(ngModel)]="selectedDiscount"
-      (ionChange)="discountSelected()">
-      <ion-select-option [value]="d.value" *ngFor="let d of discount">
-        {{d.name}}
-      </ion-select-option>
-    </ion-select>
-  </ion-list>
 </ion-content>
 <ion-footer>
   <ion-toolbar>

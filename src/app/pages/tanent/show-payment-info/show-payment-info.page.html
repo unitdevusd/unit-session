@@ -122,7 +122,7 @@
       </ion-label>
       <ion-select [(ngModel)]="paymentMethod" side="end" placeholder="Select payment mode"
         (ionChange)="onChange($event)">
-        <ion-select-option value="full">Pay in Full</ion-select-option>
+        <ion-select-option value="full">Pay for your booking</ion-select-option>
         <ion-select-option *ngIf="months > 1" value="recurring">Recurring</ion-select-option>
       </ion-select>
       <img style="margin-right: 15px;" src="../../../../assets/imgs/down_arrow.png" slot="end" />

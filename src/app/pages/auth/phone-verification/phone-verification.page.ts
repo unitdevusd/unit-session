@@ -26,12 +26,12 @@ export class PhoneVerificationPage implements OnInit {
   hash: any;
 
   constructor(
-    public formBuilder: FormBuilder,
-    public _api: ApiService,
+    private formBuilder: FormBuilder,
+    private _api: ApiService,
     public router: Router,
-    public _loader: LoaderService,
-    public alertCtrl : AlertController,
-    public _toast : ToastService
+    private _loader: LoaderService,
+    private alertCtrl : AlertController,
+    private _toast : ToastService
   ) { 
     this.contactForm = this.formBuilder.group({
       country_code: new FormControl('', Validators.required),

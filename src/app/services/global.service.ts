@@ -9,13 +9,13 @@ export class GlobalService {
 
   constructor() { }
 
-  public subject = new Subject<any>();
-  public status = new Subject<any> ();
-  public logout = new Subject<any>();
-  public filterObject = new Subject<any>();
-  public refresh = new Subject<any> ();
-  public refershMyStays = new Subject<any> ();
-  public fcmInfo = new Subject<any> ();
+  private subject = new Subject<any>();
+  private status = new Subject<any> ();
+  private logout = new Subject<any>();
+  private filterObject = new Subject<any>();
+  private refresh = new Subject<any> ();
+  private refershMyStays = new Subject<any> ();
+  private fcmInfo = new Subject<any> ();
   // Used For update  users
   sendData(user) {
     this.subject.next(user);

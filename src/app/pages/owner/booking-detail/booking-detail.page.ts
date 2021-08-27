@@ -38,16 +38,16 @@ export class BookingDetailPage implements OnInit {
   amenities: any;
 
   constructor(
-    public route: ActivatedRoute,
-    public router: Router,
-    public _api: ApiService,
-    public alert: ToastService,
-    public refresh: GlobalService,
-    public alrtCtrl: AlertController,
-    public loader: LoaderService,
-    public storage: Storage,
-    public navController: NavController,
-    public _gs: GlobalService
+    private route: ActivatedRoute,
+    private router: Router,
+    private _api: ApiService,
+    private alert: ToastService,
+    private refresh: GlobalService,
+    private alrtCtrl: AlertController,
+    private loader: LoaderService,
+    private storage: Storage,
+    private navController: NavController,
+    private _gs: GlobalService
   ) {
 
     this.route.params.subscribe(params => {
@@ -120,7 +120,7 @@ export class BookingDetailPage implements OnInit {
                   this.loadMap(lat, long);
                 }, 100);
               }
-              if (this.bookingData.place.amenities.length) {
+              if (this.bookingData.place.amenities && this.bookingData.place.amenities.length) {
                 let amenties = this.bookingData.place.amenities.map(x => {
                   return { '_id': x }
                 });

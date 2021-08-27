@@ -27,15 +27,15 @@ export class SpaceDescriptionPage implements OnInit {
 
   
   constructor(
-    public loader: LoaderService,
-    public route: ActivatedRoute,
+    private loader: LoaderService,
+    private route: ActivatedRoute,
     public alrtCtrl: AlertController,
-    public router: Router,
-    public _api: ApiService,
+    private router: Router,
+    private _api: ApiService,
     public toast: ToastService,
-    public _gs: GlobalService,
-    public _fb: FormBuilder,
-    public storage : Storage
+    private _gs: GlobalService,
+    private _fb: FormBuilder,
+    private storage : Storage
     
   ) { 
 
@@ -78,7 +78,7 @@ export class SpaceDescriptionPage implements OnInit {
     this.additionaldetails = this._fb.group({
       description: ['',Validators.required],
       healthdesc :  ['',Validators.required],
-      policydesc: ['',Validators.required]
+      policydesc: ['']
     }); 
   }
 
@@ -160,7 +160,8 @@ export class SpaceDescriptionPage implements OnInit {
         amenities: this.spaceDetails.amenities,
         images: this.spaceDetails.images,
         videos: this.spaceDetails.videos,
-        additionalInfo: this.additionalInfo
+        additionalInfo: this.additionalInfo,
+        spaceTypeName : this.spaceDetails.spaceTypeName
       }
       this.addPlaceApi(params);
     }
@@ -215,7 +216,8 @@ export class SpaceDescriptionPage implements OnInit {
         amenities: this.spaceDetails.amenities,
         images:  this.spaceDetails.images,
         videos: this.spaceDetails.videos,
-        additionalInfo : this.additionalInfo
+        additionalInfo : this.additionalInfo,
+        spaceTypeName : this.spaceDetails.spaceTypeName
       }
       console.log('In space-Images', this.spaceId);
       if (this.spaceId) {

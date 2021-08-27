@@ -18,9 +18,9 @@ export class ViewEarningsPage implements OnInit {
   orgId: any;
 
   constructor(
-    public _apiService: ApiService,
-    public alert: ToastService,
-    public storage : Storage
+    private _apiService: ApiService,
+    private alert: ToastService,
+    private storage : Storage
     ) {}
 
   ngOnInit() {

@@ -12,8 +12,8 @@ export class SelectTypePage implements OnInit {
   startDate: any;
 
   constructor(
-    public route: ActivatedRoute,
-    public router: Router
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {

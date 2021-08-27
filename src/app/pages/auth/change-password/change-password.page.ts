@@ -13,14 +13,14 @@ import { Storage } from '@ionic/storage';
 })
 export class ChangePasswordPage implements OnInit {
   passwordForm: FormGroup;
-  public url: any = config.url;
+  private url: any = config.url;
   token: any;
   
   constructor(
-    public formBuilder: FormBuilder,
-    public _apiService: ApiService,
-    public loader: LoaderService,
-    public alertController: AlertController,
+    private formBuilder: FormBuilder,
+    private _apiService: ApiService,
+    private loader: LoaderService,
+    private alertController: AlertController,
     public storage : Storage
   ) { 
     this.passwordForm = this.formBuilder.group({
@@ -56,9 +56,6 @@ export class ChangePasswordPage implements OnInit {
       "currentPassword": this.passwordForm.value.password,
       "newPassword": this.passwordForm.value.newPassword
     }
-    console.log(this.token);
-    console.log(params);
-    return;
     this._apiService.postRequest(this.url + URL.changePassword,
       params).subscribe(
         async (result) => {

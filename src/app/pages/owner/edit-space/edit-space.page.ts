@@ -21,8 +21,8 @@ const { Camera } = Plugins;
 export class EditSpacePage implements OnInit {
 
   editPlace: FormGroup;
-  public lat: any;
-  public long: any;
+  private lat: any;
+  private long: any;
   imageResponse: any = [];
   url: any = config.url;
   options: any;
@@ -49,16 +49,16 @@ export class EditSpacePage implements OnInit {
   placeId: any;
 
   constructor(
-    public router: Router,
-    public formBuilder: FormBuilder,
-    public _apiService: ApiService,
-    public alert: ToastService,
-    public loader: LoaderService,
-    public refresh: GlobalService,
-    public route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private _apiService: ApiService,
+    private alert: ToastService,
+    private loader: LoaderService,
+    private refresh: GlobalService,
+    private route: ActivatedRoute,
     public actionSheetController: ActionSheetController,
-    public storage: Storage,
-    public zone: NgZone
+    private storage: Storage,
+    private zone: NgZone
   ) {
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {

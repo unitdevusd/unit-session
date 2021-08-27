@@ -25,12 +25,34 @@
     </ion-item>
   </div>
   <div *ngIf="logged">
-    <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
-    <ion-list *ngIf="notificationList.length; else notFound">
-      <ion-item-group>
-        <ion-item-divider>
-          <ion-label>Notifications</ion-label>
-        </ion-item-divider>
+    <ion-grid class="ion-no-padding grid-border">
+      <ion-row class="ion-no-padding">
+        <ion-col class="ion-no-padding">
+          <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged($event)" mode="md" color="unit-btn">
+            <ion-segment-button value="message">
+              <ion-label style="text-transform:capitalize">Messages</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="notifications">
+              <ion-label style="text-transform:capitalize">Notifications</ion-label>
+            </ion-segment-button>
+          </ion-segment> 
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+    <div *ngIf="segment == 'message' ">
+      <ng-template>
+        <ion-item class="cancel-box">
+          <div class="ion-padding">
+            <img src="../../../../assets/imgs/emptyList.png">
+            <ion-label class="cancel-text"> {{msg}}</ion-label>
+          </div>
+        </ion-item>
+      </ng-template>
+    </div>
+    <div *ngIf="segment == 'notifications' ">
+      <ion-progress-bar color="unit-btn"  type="indeterminate" *ngIf="loading"></ion-progress-bar>
+      <div *ngIf="notificationList.length; else notFound">
         <ion-item-sliding *ngFor="let notify of notificationList; let i = index ">
           <ion-item  (click)="onNotiClick(notify,i)">
             <ion-label>
@@ -45,15 +67,15 @@
             </ion-item-option>
           </ion-item-options>
         </ion-item-sliding>
-      </ion-item-group>
-    </ion-list>
-  </div>
-  <ng-template #notFound>
-    <ion-item  *ngIf="notificationList <= 0" class="cancel-box">
-      <div class="ion-padding">
-        <img src="../../../../assets/imgs/emptyList.png">
-        <ion-label class="cancel-text"> {{text}}</ion-label>
       </div>
-    </ion-item>
-  </ng-template>
+    </div>
+    <ng-template #notFound>
+      <ion-item  *ngIf="notificationList <= 0" class="cancel-box">
+        <div class="ion-padding">
+          <img src="../../../../assets/imgs/emptyList.png">
+          <ion-label class="cancel-text"> {{text}}</ion-label>
+        </div>
+      </ion-item>
+    </ng-template>
+  </div>
 </ion-content>
