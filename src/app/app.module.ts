@@ -17,6 +17,8 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { CalendarModule } from 'ion2-calendar';
 import { Network } from '@ionic-native/network/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
     HttpClientModule, 
     CalendarModule,
     
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
