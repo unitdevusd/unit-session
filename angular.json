@@ -68,7 +68,7 @@
                 }
               ],
               "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json"
+              "ngswConfigPath": "./src/app/ngsw-config.json"
             },
             "ci": {
               "progress": false
