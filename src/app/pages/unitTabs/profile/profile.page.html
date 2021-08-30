@@ -61,9 +61,20 @@
     </ion-list>
     <div *ngIf="permission.paymentCanpay">
       <ion-list>
+
+
+
         <ion-list-header>
           <h3 class="account-title"> Me </h3>
         </ion-list-header>
+
+        <ion-item (click)="chooseRole()" detail=false>
+          <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end">
+          <ion-label>
+            Switch to Renter/Host view
+          </ion-label>
+        </ion-item>
+
         <ion-item routerLink="/payment" detail=false>
           <img src="../../../../assets/imgs/ionic-md-card.png" slot="end">
           <ion-label>Payment</ion-label>

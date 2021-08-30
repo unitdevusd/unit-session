@@ -173,6 +173,33 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['login'], navigationExtras);
   }
 
+  chooseRole() {
+    let navigationExtras: NavigationExtras = {
+      queryParams : {
+        from: 'tabs/profile'
+      }
+    }
+    this.router.navigate(['select-role'], navigationExtras);
+  }
+
+  // async chooseRole(){
+  //   console.log('Host or Renter?');
+  //   this.router.navigate(['select-role'], navigationExtras);
+  // }
+
+
+  // async chooseRole(userMeta: any) {
+  //   let navigationExtras: NavigationExtras = {
+  //     queryParams: {
+  //       special: JSON.stringify(userMeta)
+  //     }
+  //   };
+  //   this.router.navigate(['select-role'], navigationExtras);
+  // }
+
+  // chooseRole(navigationExtras) {
+  //   this.router.navigate(['select-role'], navigationExtras);
+  // }
 
   async invite(){
     console.log('Invite send');
