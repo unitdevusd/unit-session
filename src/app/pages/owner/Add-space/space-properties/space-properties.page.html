@@ -18,7 +18,7 @@
   </ion-item>
   <ion-item lines="none">
     <ion-label position="stacked">
-      At what time of the day?
+      How often can a tenant access this unit?
     </ion-label>
     <ion-select [(ngModel)]="selectedtimeSlotType" (ionChange)="timeSlotSelected()" *ngIf="timeSlotType">
       <ion-select-option [value]="st._id" *ngFor="let st of timeSlotType">
@@ -27,7 +27,7 @@
     </ion-select>
   </ion-item>
   <ion-item lines="none">
-    <ion-label position="stacked">How often can a tenant access this unit?</ion-label>
+    <ion-label position="stacked">At what time of the day?</ion-label>
     <ion-select [(ngModel)]="selectedAccessType" (ionChange)="accessTypeSelected()" *ngIf="acccessType">
       <ion-select-option [value]="at._id" *ngFor="let at of acccessType">
         {{at.accessType}}
