@@ -104,7 +104,8 @@
       "cordova-plugin-androidx": {},
       "cordova-plugin-file": {},
       "cordova-plugin-camera": {},
-      "cordova-plugin-google-analytics": {}
+      "cordova-plugin-google-analytics": {},
+      "cordova-plugin-app-version": {}
     },
     "platforms": []
   }
