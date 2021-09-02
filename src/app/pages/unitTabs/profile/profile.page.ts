@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -59,7 +59,8 @@ export class ProfilePage implements OnInit {
     private socialSharing: SocialSharing,
     private appVersion: AppVersion,
     private navController: NavController,
-    private _apiService : ApiService
+    private _apiService : ApiService,
+    private renderer : Renderer2
   ) {
     this.appVersion.getVersionCode().then(res => {
       this.version = res;
@@ -94,6 +95,16 @@ export class ProfilePage implements OnInit {
     this.permission.canviewAdditionalInfo = this.permissionlist.includes("unit.user.canViewInfo");
     this.permission.canSendInvite =  this.permissionlist.includes("unit.invite.canSendEmail" || "unit.invite.canSendSMS");
   }
+  onToggleColorTheme(event){
+    if (event.detail.checked){
+      // document.body.setAttribute('color-theme', 'dark');
+      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+    } else {
+      // document.body.setAttribute('color-theme', 'light');
+      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+    }
+  }
+
   getUserData(user?: any) {
     console.log(user);
     if (user) {
