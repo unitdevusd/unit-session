@@ -109,5 +109,18 @@ export class StartBookingPage implements OnInit {
     });
   }
 
+  renterTags:any;
+tags = [];
+
+// doSomething(tag){
+//      if(this.doValidate(tag)){
+//         this.tags.push(tag);
+//         this.renterTags = '';  // reset ngModel it will clear old value
+//      }
+// }
+
+removeItem(i){
+     this.tags.splice(i, 1)
+}
   
 }
