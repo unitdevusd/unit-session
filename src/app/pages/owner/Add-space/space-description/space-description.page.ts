@@ -99,7 +99,7 @@ export class SpaceDescriptionPage implements OnInit {
   async backAlert() {
     const alert = await this.alrtCtrl.create({
       header: 'Lose your data',
-      message: 'You may loose your data. Are you sure that you want to start all over again?',
+      message: 'You may lose your data. Are you sure that you want to start all over again?',
       buttons: [
         {
           text: 'Cancel',
