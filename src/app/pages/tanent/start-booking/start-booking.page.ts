@@ -119,8 +119,8 @@ tags = [];
 //      }
 // }
 
-removeItem(i){
-     this.tags.splice(i, 1)
-}
+// removeItem(i){
+//      this.tags.splice(i, 1)
+// }
   
 }
