@@ -95,13 +95,13 @@ export class ProfilePage implements OnInit {
     this.permission.canviewAdditionalInfo = this.permissionlist.includes("unit.user.canViewInfo");
     this.permission.canSendInvite =  this.permissionlist.includes("unit.invite.canSendEmail" || "unit.invite.canSendSMS");
   }
-  onToggleColorTheme(event){
+  toggleTheme(event){
     if (event.detail.checked){
-      // document.body.setAttribute('color-theme', 'dark');
-      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+      document.body.setAttribute('color-theme', 'dark');
+      // this.renderer.setAttribute(document.body, 'color-theme', 'dark');
     } else {
-      // document.body.setAttribute('color-theme', 'light');
-      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+      document.body.setAttribute('color-theme', 'light');
+      // this.renderer.setAttribute(document.body, 'color-theme', 'dark');
     }
   }
 
