@@ -35,6 +35,10 @@ export class PlaceDetailPage implements OnInit {
   token: any;
   orgId: any;
   reviewCount: number = 0;
+  // doSomething: any; 
+  // removeItem: any; 
+  // validateChip: any;
+  // doValidate: any;
 
   
   constructor(
@@ -220,4 +224,29 @@ export class PlaceDetailPage implements OnInit {
         console.log(error);
       });
   }
+
+  // storeItem:any;
+  // chips = [];
+
+  // doSomething(tag){
+  //    if(this.doValidate(tag)){
+  //       this.chips.push(tag);
+  //       this.storeItem = '';  // reset ngModel it will clear old value
+  //    };
+
+  // removeItem(i){
+  //     this.chips.splice(i, 1)
+  //   };
+
+  // validateChip(tag) { //Validates the tag
+  //     var tagRegex = [a-zA-Z0-9];
+  //     return tagRegex.test(tag);
+  //   };
+
+  // doValidate(tag) {
+  //   if (!validateChip(tag)){
+  //    alert("Invalid tag");
+  //    return false;
+  //   };
+    
 }
