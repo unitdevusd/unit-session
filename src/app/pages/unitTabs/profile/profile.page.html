@@ -35,7 +35,8 @@
   <div *ngIf="logged">
       <br>
         <ion-title>Account Settings</ion-title> 
-    <ion-list>
+      <br>
+        <ion-list>
       <!-- <div *ngIf="permission.canCreateSpace">
         <ion-item (click)="navigateHost()" detail=false>
           <img src="../../../../assets/imgs/awesome-building.png" slot="end">
@@ -77,9 +78,9 @@
 
         <ion-item>
           <ion-label>
-            Toggle Dark Mode
+            Dark Mode
           </ion-label>
-          <ion-toggle slot="end" (ionChange)="onToggleColorTheme($event)"></ion-toggle>
+          <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
         </ion-item>
 
         <ion-item routerLink="/payment" detail=false>
@@ -162,7 +163,7 @@
   
     <div *ngIf="logged">
     <ion-item (click)="logout()">
-      <ion-label style="color: red;" class="logout">
+      <ion-label color="danger" class="logout">
         Logout
       </ion-label>
     </ion-item>

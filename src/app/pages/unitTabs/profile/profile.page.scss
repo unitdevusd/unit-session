@@ -1,5 +1,5 @@
 ion-content {
-    --ion-background-color: #ffffff;
+    --ion-background-color: "primary";
   }
   .circle-pic {
     width: 100px;
@@ -12,7 +12,7 @@ ion-content {
     object-fit: cover;
   }
   .icon-style {
-    color: #c1bcbc;
+    color: "senary";
     width: 25px;
     height: 25px;
   }
@@ -21,7 +21,7 @@ ion-content {
       h2 {
         font-size: medium;
         font-weight: bold;
-        color: grey;
+        color: "quaternary";
       }
     }
     ion-button {
@@ -30,7 +30,7 @@ ion-content {
   }
   ion-list {
     ion-label {
-      color: #767676 !important;
+      color: "senary-shade" !important;
       font-size: 16px !important;
       font-family: "medium";
       margin-bottom: 0px;
@@ -47,10 +47,10 @@ ion-content {
   .p-text {
     font-size: 14px;
     line-height: 1.5;
-    color: var(--ion-color-step-600, #60646b);
+    color: var(--ion-color-step-600, "quaternary");
     a {
       text-decoration: none;
-      color: #ED1B25;
+      color: "primary";
     }
   }
   .hydrated img {
@@ -59,23 +59,24 @@ ion-content {
   }
   .break {
     padding: 4px;
-    background-color: #f1ebeb;
+    background-color: "quinary";
   }
   .main-div {
-    background: rgb(237, 27, 37);
-    background: linear-gradient(
-      90deg,
-      rgba(237, 27, 37, 1) 39%,
-      rgba(255, 114, 121, 1) 60%,
-      rgba(255, 114, 121, 1) 74%,
-      rgba(255, 114, 121, 1) 100%
-    );
+    background: "tertiary";
+    // background: rgb(237, 27, 37);
+    // background: linear-gradient(
+    //   90deg,
+    //   rgba(237, 27, 37, 1) 39%,
+    //   rgba(255, 114, 121, 1) 60%,
+    //   rgba(255, 114, 121, 1) 74%,
+    //   rgba(255, 114, 121, 1) 100%
+    // );
     height: 100px;
     position: relative;
   }
   .account-title {
     font-size: 17px;
-    color: #1f1f1f;
+    color: "primary";
     font-family: "helveticaneuebold";
     margin-bottom: 2px;
   }
@@ -93,11 +94,11 @@ ion-content {
   }
   .main-email {
     margin-top: 5px;
-    color: #c1c1c1;
+    color: "senary";
     font-family: medium;
   }
   .edit-profile {
-    color: #fff;
+    color: "secondary";
     font-family: medium;
   }
   ion-item {
@@ -125,7 +126,7 @@ ion-content {
     top: -7px;
   }
   .edit-profile1 a {
-    color: #fff;
+    color: "secondary";
     font-family: medium;
     font-size: 14px;
   }
@@ -136,4 +137,9 @@ ion-content {
     max-width: 80px;
     margin-top: -9px;
   }
-  
+  .top-heading{
+    color: "tertiary";
+  }
+  .top-heading-popular{
+    color: "tertiary";
+  }
