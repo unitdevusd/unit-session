@@ -89,6 +89,7 @@ export class SpaceDetailsPage implements OnInit {
 }
 
 addAddress(params: any) {
+  console.log(params);
   let address = JSON.parse(params.location);
   this.lat = Number(address[0].latitude);
   this.long = Number(address[0].longitude);
@@ -104,8 +105,11 @@ addSpaceInfo(spaceDetails: any) {
   console.log('inspaced',spaceDetails);
   this.selectedspaceType = spaceDetails.spaceType;
   this.spaceId = spaceDetails._id;
-  this.lat = spaceDetails.loc.coordinates[1];
-  this.long = spaceDetails.loc.coordinates[0];
+  console.log(spaceDetails.loc);
+  if(spaceDetails.loc){
+    this.lat = spaceDetails.loc.coordinates[1];
+    this.long = spaceDetails.loc.coordinates[0];
+  }
   this.location = spaceDetails.address;
   if(this.location === 'Address Not Available!'){
    this.location = '';
@@ -216,7 +220,10 @@ next(index){
             if (result.success) {
               this.spaceType = result.data.list.spaceType;
               this.spaceType.push({ _id: "0","spaceType": "others"});
-              this.addSpaceInfo(this.spaceDetails);
+              console.log(this.spaceDetails);
+              if(this.spaceDetails){
+                this.addSpaceInfo(this.spaceDetails);
+              }
             } else {
               this._toast.presentToast(result.message);
             }

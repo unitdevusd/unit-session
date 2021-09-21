@@ -130,9 +130,8 @@ export class SpaceDescriptionPage implements OnInit {
 
   saveListing() {
     if (this.additionaldetails.value) {
-      this.additionalInfo.push({'name' : 'During your stay', 'desc': this.additionaldetails.value.description});
-      this.additionalInfo.push({'name' : 'health & Safety', 'desc': this.additionaldetails.value.healthdesc});
-      this.additionalInfo.push({'name' : 'Cancellation Policy', 'desc': this.additionaldetails.value.policydesc});
+      this.additionalInfo.push({'name' : 'Things to be aware of', 'desc': this.additionaldetails.value.description});
+      this.additionalInfo.push({'name' : 'Safety Precautions to follow', 'desc': this.additionaldetails.value.healthdesc});
       this.addSpace(3);
     } else {
       this.addSpace(2);
@@ -192,9 +191,8 @@ export class SpaceDescriptionPage implements OnInit {
     console.log(index);
     console.log(this.additionaldetails.value);
     if(this.additionaldetails.value){
-      this.additionalInfo.push({'name' : 'During your stay', 'desc': this.additionaldetails.value.description});
-      this.additionalInfo.push({'name' : 'health & Safety', 'desc': this.additionaldetails.value.description});
-      this.additionalInfo.push({'name' : 'Cancellation Policy', 'desc': this.additionaldetails.value.description});
+      this.additionalInfo.push({'name' : 'Things to be aware of', 'desc': this.additionaldetails.value.description});
+      this.additionalInfo.push({'name' : 'Safety Precautions to follow', 'desc': this.additionaldetails.value.healthdesc});
     }
     if (this.token) {
       const params = {
