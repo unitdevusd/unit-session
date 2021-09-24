@@ -35,6 +35,7 @@ export class PlaceDetailPage implements OnInit {
   token: any;
   orgId: any;
   reviewCount: number = 0;
+  // storeItem: any;
   // doSomething: any; 
   // removeItem: any; 
   // validateChip: any;
@@ -232,7 +233,8 @@ export class PlaceDetailPage implements OnInit {
   //    if(this.doValidate(tag)){
   //       this.chips.push(tag);
   //       this.storeItem = '';  // reset ngModel it will clear old value
-  //    };
+  //    }
+  // };
 
   // removeItem(i){
   //     this.chips.splice(i, 1)
@@ -248,5 +250,9 @@ export class PlaceDetailPage implements OnInit {
   //    alert("Invalid tag");
   //    return false;
   //   };
+  // }
     
+
+
+  
 }
