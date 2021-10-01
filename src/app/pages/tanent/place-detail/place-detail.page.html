@@ -230,23 +230,30 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <!-- <ion-content> 
+      <div class="ion-padding">
+        <div class="date-select">Select Dates</div>
+        <ion-calendar [(ngModel)]="dateRange" [options]="optionsRange" [type]="type" (change)="onChange($event)"
+          [format]="'YYYY-MM-DD'" class="padding-none">
+        </ion-calendar>
+      </div>
+    </ion-content> -->
+
+    <!-- <ion-content> 
+      <div class="ion-padding">
+        <ion-item lines="none">
+          <ion-label position="stacked" class="tell-txt">Tell us more about what you want <br> to store here:</ion-label>
+          <ion-textarea placeholder="Text Here" [(ngModel)]="description" rows="2">
+          </ion-textarea>
+        </ion-item>
+      </div>
+    </ion-content> -->
+        
+
   </div>
 
-  <ion-content>
-    <div class="ion-padding">
-      <div class="date-select">Select Dates</div>
-      <ion-calendar [(ngModel)]="dateRange" [options]="optionsRange" [type]="type" (change)="onChange($event)"
-        [format]="'YYYY-MM-DD'" class="padding-none">
-      </ion-calendar>
-    </div>
-    <div class="ion-padding">
-      <ion-item lines="none">
-        <ion-label position="stacked" class="tell-txt">Tell us more about what you want <br> to store here?</ion-label>
-        <ion-textarea placeholder="Text Here" [(ngModel)]="description" rows="2">
-        </ion-textarea>
-      </ion-item>
-    </div>
-  </ion-content>
+  
 
   <!-- <div class="ion-padding">
     <ion-item lines="none">
