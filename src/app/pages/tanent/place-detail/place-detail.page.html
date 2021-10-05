@@ -145,6 +145,9 @@
             <ion-label *ngIf="data.ownerInfo.profile.firstName">
               <h2> Owned by {{data?.ownerInfo?.profile.firstName}}</h2>
               <h3 *ngIf="data.ownerInfo.profile.description">{{data?.ownerInfo?.profile.description}}</h3>
+             
+             <!-- Need to change this to dynamic value instead of being statically typed:-->
+             
               <h3 *ngIf="!data.ownerInfo.profile.description">joined in may 2020</h3>
               <h3>
                 <img src="../../../../assets/imgs/awesome-star.png">
