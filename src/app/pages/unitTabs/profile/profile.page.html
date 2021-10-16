@@ -33,9 +33,9 @@
   <div class="break">
   </div>
   <div *ngIf="logged">
-      <br>
-        <ion-title>Account Settings</ion-title> 
-      <br>
+    <br>
+
+
         <ion-list>
       <!-- <div *ngIf="permission.canCreateSpace">
         <ion-item (click)="navigateHost()" detail=false>
@@ -61,16 +61,17 @@
       </div> -->
     </ion-list>
     <div *ngIf="permission.paymentCanpay">
+
+      <!-- <ion-title>Account Settings</ion-title>  -->
       <ion-list>
-
-
 
         <ion-list-header>
           <h3 class="account-title"> Me </h3>
         </ion-list-header>
 
         <ion-item (click)="chooseRole()" detail=false>
-          <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end">
+          <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+          <!-- <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end"> -->
           <ion-label>
             Switch to Renter/Host view
           </ion-label>

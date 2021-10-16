@@ -16,10 +16,10 @@
         </ion-searchbar>
       </ion-col>
       <ion-col [size]="2" class="noti">
-        <img src="../../../../assets/imgs/group92.png" *ngIf="!hasFilter" name="options-outline" (click)="openFilter()"
-          style="margin-right: 14px; margin-top: 14px;">
-        <img src="../../../../assets/imgs/group92.png" *ngIf="hasFilter" color="unit-btn" name="options-outline"
-          (click)="openFilter()" style="margin-right: 14px; margin-top: 14px;">
+        <ion-icon *ngIf="!hasFilter" name="funnel" (click)="openFilter()"
+          style="margin-right: 14px; margin-top: 14px;"> </ion-icon>
+        <ion-icon *ngIf="hasFilter" color="unit-btn" name="funnel"
+          (click)="openFilter()" style="margin-right: 14px; margin-top: 14px;"> </ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>

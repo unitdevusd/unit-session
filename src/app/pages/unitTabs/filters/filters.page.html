@@ -82,7 +82,7 @@
         <h4>Features</h4>
       </ion-list-header>
       </ion-list>
-      <ion-badge *ngFor="let am of features; let i=index" class="bad-col">
+      <ion-badge *ngFor="let am of features; let i=index" class="bad-col" color="tertiary">
         {{am.name}}
         <ion-icon name="close-outline" (click)="clearFeature(i)"></ion-icon>
       </ion-badge>
@@ -92,7 +92,7 @@
   <ion-grid>
     <ion-row class="ion-align-items-start">
       <ion-col>
-        <ion-button color="unit-btn" (click)="applyFilters()" class="btn">Apply</ion-button>
+        <ion-button color="primary" (click)="applyFilters()" class="btn">Apply</ion-button>
       </ion-col>
       <ion-col class="ion-align-self-end" style="left: 25%;">
         <ion-button color="danger" (click)="clearFilters()" class="btn">Clear</ion-button>
