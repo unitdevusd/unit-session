@@ -50,22 +50,22 @@
       ion-card-subtitle {
         text-align: left;
         font-size: 13px;
-        font-weight: 400;
+        font-weight: 2;
         margin-top: 8px;
         padding-top: 0;
         font-family: "helveticaneuebold";
-        color: #1f1f1f;
+        color: "tertiary";
         margin-bottom: 0;
         padding-bottom: 3px;
       }
       ion-card-title {
         text-align: left;
-        color: #000;
+        color: "tertiary";
         font-size: 11px;
         font-family: "medium";
         font-weight: 400;
         span {
-          color: #9b9b9b;
+          color: "tertiary";
         }
       }
     }
@@ -75,7 +75,7 @@
       }
       .card-content {
         text-align: left !important;
-        color: #000;
+        color: "tertiary";
         font-size: 11px !important;
         margin-top: 6px;
         margin-bottom: 6px;
@@ -86,7 +86,7 @@
       }
       .card-content-popular{
         text-align: left !important;
-        color: #000;
+        color: "#000";
         font-size: 11px !important;
         font-family: "medium";
         span {
@@ -294,4 +294,3 @@
 .img-spacetype{
   max-width: 80% !important;
 }
-

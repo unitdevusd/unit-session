@@ -62,8 +62,9 @@ ion-content {
     background-color: "quinary";
   }
   .main-div {
-    background: "tertiary";
-    // background: rgb(237, 27, 37);
+    // background: "primary-rgb";
+    // background: rgb(186,34,64);
+    
     // background: linear-gradient(
     //   90deg,
     //   rgba(237, 27, 37, 1) 39%,
@@ -71,6 +72,8 @@ ion-content {
     //   rgba(255, 114, 121, 1) 74%,
     //   rgba(255, 114, 121, 1) 100%
     // );
+
+    background: rgba(237, 27, 37, 1);
     height: 100px;
     position: relative;
   }
@@ -98,7 +101,7 @@ ion-content {
     font-family: medium;
   }
   .edit-profile {
-    color: "secondary";
+    color: #fff;
     font-family: medium;
   }
   ion-item {
@@ -125,7 +128,7 @@ ion-content {
     right: 0;
     top: -7px;
   }
-  .edit-profile1 a {
+  .edit-profile {
     color: "secondary";
     font-family: medium;
     font-size: 14px;
