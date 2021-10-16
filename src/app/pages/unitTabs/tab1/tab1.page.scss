@@ -54,7 +54,7 @@ ion-content {
       margin-top: 8px;
       padding-top: 0;
       font-family: "helveticaneuebold";
-      color: #1f1f1f;
+      color: "dark";
       margin-bottom: 0;
       padding-bottom: 3px;
     }
@@ -230,13 +230,13 @@ ion-list {
     .main_text {
       font-size: 11px;
       font-family: "medium";
-      color: #000000;
+      color: "tertiary";
       display: inline-block;
       margin-left: 8px;
       vertical-align: middle;
     }
     .secondary_text {
-      color: #575757;
+      color: "tertiary";
       font-size: 11px;
       font-family: "medium";
     }
@@ -268,7 +268,7 @@ ion-list {
   z-index: 9999;
   background: red;
   top: 217px;
-  color: #fff;
+  color: "secondary";
   padding: 8px 20px;
   border-radius: 30px;
   font-size: 11px;

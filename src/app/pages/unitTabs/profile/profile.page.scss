@@ -30,7 +30,7 @@ ion-content {
   }
   ion-list {
     ion-label {
-      color: "senary-shade" !important;
+      color: "tertiary" !important;
       font-size: 16px !important;
       font-family: "medium";
       margin-bottom: 0px;
@@ -39,6 +39,7 @@ ion-content {
     }
     ion-item {
       padding-right: 17px !important;
+      --border-color: "medium";
     }
     h4 {
       padding-left: 5px !important;
@@ -101,7 +102,7 @@ ion-content {
     font-family: medium;
   }
   .edit-profile {
-    color: #fff;
+    color: "secondary";
     font-family: medium;
   }
   ion-item {
@@ -129,7 +130,7 @@ ion-content {
     top: -7px;
   }
   .edit-profile {
-    color: "secondary";
+    color: #fff;
     font-family: medium;
     font-size: 14px;
   }
