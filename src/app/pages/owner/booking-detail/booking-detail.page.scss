@@ -8,7 +8,7 @@ ion-toolbar {
   }
   .slider-slide {
     color: #000;
-    background-color: #fff;
+    background-color: "secondary";
     height: 100%;
   }
   .swiper-slide img {
@@ -30,14 +30,14 @@ ion-toolbar {
   }
   
   :host {
-    background-color: #ffffff;
+    background-color: "secondary"fff;
   }
   ion-content {
     --background: transparent;
   }
   
   .content {
-    background-color: #ffffff;
+    background-color: "secondary"fff;
     height: auto !important;
     border-radius: 25px;
     padding-top: 0px;
@@ -248,7 +248,7 @@ ion-toolbar {
     margin-top: 0px;
     padding-top: 0;
     font-family: "helveticaneuebold";
-    color: #1f1f1f;
+    color: "dark";
     margin-bottom: 0;
     padding-bottom: 0;
   }

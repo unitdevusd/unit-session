@@ -13,7 +13,7 @@
   }
   
   .content {
-    background-color: #ffffff;
+    background-color: "secondary"fff;
     border-radius: 25px 25px 0px 0px;
     padding-top: 0px;
     box-shadow: 0px 0px 10px #a3a4a7;
@@ -234,13 +234,13 @@
       .main_text {
         font-size: 11px;
         font-family: "medium";
-        color: #000000;
+        color: "tertiary";
         display: inline-block;
         margin-left: 8px;
         vertical-align: middle;
       }
       .secondary_text {
-        color: #575757;
+        color: "tertiary";
         font-size: 11px;
         font-family: "medium";
       }
@@ -272,7 +272,7 @@
     z-index: 9999;
     background: red;
     top: 217px;
-    color: #fff;
+    color: "secondary";
     padding: 8px 20px;
     border-radius: 30px;
     font-size: 11px;

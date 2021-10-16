@@ -220,7 +220,7 @@ export class ProfilePage implements OnInit {
   async consultLawyer(){
     const alert = await this.alertCtrl.create({
       header: 'Consult Lawyer',
-      message: 'We will set you up with a free consultation before recommending you to a legal professional Is this OK?',
+      message: 'We will set you up with a free consultation before recommending you to a legal professional. Is this OK?',
       buttons: [
         {
           text: 'No',
