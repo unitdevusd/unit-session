@@ -34,24 +34,8 @@
   </div>
   <div *ngIf="logged">
     <br>
-
-
-        <ion-list>
-      <!-- <div *ngIf="permission.canCreateSpace">
-        <ion-item (click)="navigateHost()" detail=false>
-          <img src="../../../../assets/imgs/awesome-building.png" slot="end">
-          <ion-label>
-            List your space
-          </ion-label>
-        </ion-item>
-        <ion-item (click)="becomeTenant()" detail=false>
-          <img src="../../../../assets/imgs/ionic-ios-home.png" slot="end">
-          <ion-label>
-            View as a Renter
-          </ion-label> 
-        </ion-item>
-      </div>
-      <div *ngIf="!permission.canCreateSpace">
+    <ion-list>
+      <!--  <div *ngIf="!permission.canCreateSpace">
         <ion-item (click)="becomeHost()" detail=false>
           <img src="../../../../assets/imgs/awesome-building.png" slot="end">
           <ion-label>
@@ -60,23 +44,21 @@
         </ion-item>
       </div> -->
     </ion-list>
-    <div *ngIf="permission.paymentCanpay">
-
-      <!-- <ion-title>Account Settings</ion-title>  -->
-      
-
-        <ion-list-header>
-          <h3 class="account-title"> Me </h3>
-        </ion-list-header>
+    <div>
+      <ion-list-header>
+        <h3 class="account-title"> Me {{permission.canBook}} </h3>
+      </ion-list-header>
       <ion-list>
         <ion-item (click)="chooseRole()" detail=false>
           <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
           <!-- <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end"> -->
-          <ion-label>
-            Switch to Renter/Host view
+          <ion-label *ngIf="!permission.canCreateSpace">
+            Switch to Host view
+          </ion-label>
+          <ion-label *ngIf="permission.canCreateSpace">
+            Switch to Renter view
           </ion-label>
         </ion-item>
-
         <ion-item>
           <ion-label>
             Dark Mode
@@ -84,13 +66,13 @@
           <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
         </ion-item>
 
-        <ion-item routerLink="/payment" detail=false>
+        <ion-item routerLink="/payment" detail=false *ngIf="permission.paymentCanpay">
           <img src="../../../../assets/imgs/ionic-md-card.png" slot="end">
           <ion-label>Payment</ion-label>
         </ion-item>
         <ion-item *ngFor="let p of settingPages" [routerLink]="[p.url]" detail=false>
           <ion-label>
-              {{p.title}}
+            {{p.title}}
           </ion-label>
           <img src="{{p.icon}}" slot="end">
         </ion-item>
@@ -103,10 +85,9 @@
       </ion-list>
     </div>
     <!-- FOR HOST -->
-    
-      <ion-list-header>
-        <h4 class="account-title"> Earnings </h4>
-      </ion-list-header>
+    <ion-list-header>
+      <h4 class="account-title"> Earnings </h4>
+    </ion-list-header>
     <ion-list *ngIf="permission.earningcanRetrive">
       <ion-item routerLink="/view-earnings" detail=false style="padding-right: 0px !important">
         <ion-icon class="icon-style" slot="end" name="cash-outline"></ion-icon>
@@ -114,23 +95,23 @@
       </ion-item>
     </ion-list>
   </div>
-  
-    <ion-list-header>
-      <h3 class="account-title"> Referrals </h3>
-    </ion-list-header>
-    <ion-list *ngIf="permission.canSendInvite">
+
+  <ion-list-header>
+    <h3 class="account-title"> Referrals </h3>
+  </ion-list-header>
+  <ion-list *ngIf="permission.canSendInvite">
     <ion-item detail=false (click)="invite()">
       <img src="../../../../assets/imgs/ionic-md-gift.png" slot="end">
       <ion-label>Invite friends</ion-label>
     </ion-item>
   </ion-list>
-  
-  
-      <ion-list-header>
-        <h3 class="account-title"> Legal </h3>
-      </ion-list-header>
-    <ion-list>
-      <ion-item (click)="consultLawyer()" detail=false>
+
+
+  <ion-list-header>
+    <h3 class="account-title"> Legal </h3>
+  </ion-list-header>
+  <ion-list>
+    <ion-item (click)="consultLawyer()" detail=false>
       <img src="../../../../assets/imgs/ionic-md-document.png" slot="end">
       <ion-label>
         Consult a legal pro
@@ -146,7 +127,7 @@
         Terms of Service
       </ion-label>
     </ion-item> -->
-    
+
     <ion-item (click)="privacy()">
       <img src="../../../../assets/imgs/feather-settings.png" slot="end">
       <ion-label>
@@ -158,21 +139,21 @@
   <ion-list>
     <ion-list-header>
       <h3 class="account-title"> Support </h3>
-    </ion-list-header>   
+    </ion-list-header>
     <ion-item *ngIf="version">
-      <ion-note  slot="end" color="danger">{{version}}</ion-note>
-        <ion-label>
+      <ion-note slot="end" color="danger">{{version}}</ion-note>
+      <ion-label>
         App Version
-        </ion-label>
+      </ion-label>
     </ion-item>
   </ion-list>
-  
-  
-    <div *ngIf="logged">
+
+
+  <div *ngIf="logged">
     <ion-item (click)="logout()">
       <ion-label color="danger" class="logout">
         Logout
       </ion-label>
     </ion-item>
-    </div>
+  </div>
 </ion-content>
