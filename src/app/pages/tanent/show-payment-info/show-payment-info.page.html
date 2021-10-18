@@ -116,14 +116,15 @@
   <hr class="newline">
   <ion-list lines="none" class="ion-no-padding">
     <ion-item class="ion-no-padding">
-      <ion-label style="margin-left: 20px; font-size: 22px;">
-        <img style="margin-left: 10px;" src="../../../../assets/imgs/material-payment.png" />
+      <!-- <ion-label style="margin-left: 20px; font-size: 22px;"> -->
+        <ion-icon color="tertiary" name="card-outline" style="margin-left: 20px; font-size: 22px;"></ion-icon>
+        <!-- <img style="margin-left: 10px;" src="../../../../assets/imgs/material-payment.png" /> -->
         <!-- <span class="card-text">Pay in Full</span> -->
-      </ion-label>
-      <ion-select [(ngModel)]="paymentMethod" side="end" placeholder="Select payment mode"
-        (ionChange)="onChange($event)">
-        <ion-select-option value="full">Pay for your booking</ion-select-option>
-        <ion-select-option *ngIf="months > 1" value="recurring">Recurring</ion-select-option>
+      <!-- </ion-label> -->
+      <ion-select [(ngModel)]="paymentMethod" side="end" placeholder="Select payment method"
+        (ionChange)="onChange($event)" slot="end">
+        <ion-select-option value="full"> Pay in full</ion-select-option>
+        <ion-select-option *ngIf="months > 1" value="recurring">Recurring payments</ion-select-option>
       </ion-select>
       <img style="margin-right: 15px;" src="../../../../assets/imgs/down_arrow.png" slot="end" />
     </ion-item>
