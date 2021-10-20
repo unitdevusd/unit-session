@@ -30,7 +30,7 @@ section {
       h2{
         font-size: medium;
         font-weight: bold;
-        color: grey;
+        color: "quaternary";
       }    
     }
     ion-button{
@@ -40,7 +40,7 @@ section {
   .p-text {
     font-size: 14px;
     line-height: 1.5;
-    color: var(--ion-color-step-600, #60646b);
+    color: var(--ion-color-step-600, "quaternary");
     a {
       text-decoration: none;
       color: #ED1B25;
@@ -66,4 +66,88 @@ section {
     border-bottom: 1px solid red;
     margin-left: 25px;
     margin-right: 25px;
+  }
+
+  .chat-list{
+    background: "secondary";
+    margin-top: 5px;
+    border-top-right-radius: 38px;
+    border-top-left-radius: 38px;
+
+    .all-chats{
+      padding-top:0;
+    }
+    .heading{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      color: "quaternary";
+      h1{
+        font-size: 0.6rem;
+        font-weight: bold;
+        color: "quaternary";
+      }
+      ion-icon{
+        font-size: 1.5rem;
+      }
+    }
+    .chats{
+      margin-top: 15px;
+      ion-item:part(native){
+        padding: 0;
+      }
+      ion-item{
+        margin-bottom: 15px;
+        ion-avatar{
+          width: 100% !important;
+          height: 100% !important;
+          max-width: 51px;
+        }
+        ion-label{
+          h2{
+            font-size: 1rem;
+            font-weight: bolder;
+            color: "quaternary";
+          }
+          p{
+            margin-top: 6px;
+            font-size: 0.8rem;
+            color: "quaternary";
+            opacity: 0.5;
+            letter-spacing: 0.5;
+            font-weight: bold;
+          }
+        }
+        .info-div{
+          position: absolute;
+          right: 0;
+          font-size: 0.4rem;
+          color: "tertiary";
+          font-weight: bolder;
+          text-align: right;
+          p{
+            opacity: 0.5;
+          }
+          ion-icon{
+            font-size: 1.3rem;
+          }
+          ion-badge{
+            font-size: 11px;
+           /* background: blue; */
+            margin-bottom: 5px;
+            --padding-start: 5px;
+            --padding-end: 5px;
+            --padding-bottom: 3px;
+            --padding-top: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  ion-fab-button{
+    position: fixed;
+    z-index: 111;
+    bottom: 30px;
+    right: 15px;
   }

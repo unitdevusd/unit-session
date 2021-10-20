@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>
      Inbox
@@ -78,4 +78,55 @@
       </ion-item>
     </ng-template>
   </div>
+  <div class="recent-chats ion-padding">
+    <div class="heading">
+      <h1>My Chats</h1>
+      <ion-icon name="search-sharp"></ion-icon>
+    </div>
+    <div class="chats">
+      <ion-item lines="none" routerLink="/conversation-page">
+      <ion-avatar slot="start">
+        <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-46226/CloserDetailsOutdoor_AppleiPhone11.jpg" alt="">
+      </ion-avatar>
+      <ion-label class="ion-text-nowrap">
+        <h2>Joe</h2>
+        <p>Typing...</p>
+      </ion-label>
+      <div class="info-div">
+        <p>2:13PM</p>
+      </div>
+      </ion-item>
+      
+      <ion-item lines="none" routerLink="/conversation-page">
+        <ion-avatar slot="start">
+          <img src="https://media.gq.com/photos/55828f78e52bc4b477a98e17/4:3/w_628,h_471,c_limit/blogs-the-feed-tinashe-selfie-628.jpg" alt="">
+        </ion-avatar>
+        <ion-label class="ion-text-nowrap">
+          <h2>Mary</h2>
+          <p>Is he moving his stuff in today?</p>
+        </ion-label>
+        <div class="info-div">
+          <p>4:10PM</p>
+          <ion-badge>1</ion-badge>
+        </div>
+        </ion-item>
+
+        <ion-item lines="none" routerLink="/conversation-page">
+          <ion-avatar slot="start">
+            <img src="https://cdn57.androidauthority.net/wp-content/uploads/2020/07/OnePlus-Nord-Selfie-Camera-10.jpg" alt="">
+          </ion-avatar>
+          <ion-label class="ion-text-nowrap">
+            <h2>Andrew</h2>
+            <p>On my way now</p>
+          </ion-label>
+          <div class="info-div">
+            <p>6:30AM</p>
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+          </div>
+          </ion-item>
+    </div>
+  </div>
+  <ion-fab-button>
+    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+  </ion-fab-button>
 </ion-content>

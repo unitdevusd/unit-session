@@ -14,7 +14,7 @@ ion-toolbar {
     --highlight-height: 0;
     border: 1px solid #cdcfcf;
     border-radius: 50px;
-    color: #707070;
+    color: "quaternary";
     height: 47px;
     margin-left: 0px;
     margin-right: 15px;
@@ -22,7 +22,7 @@ ion-toolbar {
       border: 1px solid var(--ion-color-primary);
     }
     ion-label {
-      color: #727272 !important;
+      color: "quaternary" !important;
       font-size: 14px !important;
       padding-left: 0px;
       font-family: medium;
@@ -47,14 +47,14 @@ ion-toolbar {
     border: 1px solid #ed1b25 !important;
 }
 .main{
-    background-color: white;
+    background-color: "secondary";
     width: 100%;
     position: absolute;
     padding: 20px 30px 0px 20px;
     form{
         ion-input{
             border: 1px solid #cdcfcf;
-            --placeholder-color: #707070;
+            --placeholder-color: "quaternary";
             --placeholder-opacity: 1;
             font-family: medium;
             border-radius: 25px;
@@ -64,7 +64,7 @@ ion-toolbar {
         }
     }
     .main-new{
-      background-color: white;
+      background-color: "secondary";
       width: 100%;
       position: absolute;
       padding: 20px 40px 0px 10px;
