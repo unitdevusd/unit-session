@@ -61,6 +61,14 @@ export class ApiService {
         console.log(result);
         resolve(result);
       },
+
+      /*
+      console.log(params);
+      return this.http.post('https://unit-storage-default-rtdb.firebaseio.com/offered-places.json', {...newPlace, id: null}).subscribe((result: any) => {
+        console.log(result);
+        resolve(result);
+      },
+      */
         (error) => {
           console.log(error);
           resolve({ success: false, message: error });
