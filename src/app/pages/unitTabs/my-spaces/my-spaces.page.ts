@@ -260,14 +260,23 @@ export class MySpacesPage implements OnInit {
     }
 
     shareByFacebook(place){
-    console.log('place', place);
-    this.socialSharing.shareViaFacebook(null,null,'https://apps.apple.com/in/app/myrivu/id1250322239').then((res) => {
-      // Success
-    }).catch((e) => {
-      // Error!
-    });
-  }
+      let id = place._id;
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+          special: id
+        }
+      };
+      this.router.navigate(['invite'], navigationExtras);
+    }
 
+  //   shareByFacebook(place){
+  //   console.log('place', place);
+  //   this.socialSharing.shareViaFacebook(null,null,'https://apps.apple.com/in/app/myrivu/id1250322239').then((res) => {
+  //     // Success
+  //   }).catch((e) => {
+  //     // Error!
+  //   });
+  // }
 
   editSpace(place) {
     let id = place._id;
