@@ -76,7 +76,9 @@
     </ion-list>
     <div>
       <ion-list-header>
-        <h3 class="account-title"> Me {{permission.canBook}} </h3>
+        <h3 class="account-title"> Me 
+          <!-- {{permission.canBook}}  -->
+        </h3>
       </ion-list-header>
       <ion-list>
         <ion-item (click)="chooseRole()" detail=false>
@@ -116,13 +118,13 @@
     </div>
     <!-- FOR HOST -->
     
-    <ion-list-header>
+    <!-- <ion-list-header>
       <h3 class="account-title"> Me </h3>
     </ion-list-header>
 
     <ion-item (click)="chooseRole()" detail=false>
       <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
-      <!-- <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end"> -->
+      <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end">
       <ion-label>
         Switch to Renter/Host view
       </ion-label>
@@ -133,7 +135,7 @@
         Dark Mode
       </ion-label>
       <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
-    </ion-item>
+    </ion-item> -->
 
       <ion-list-header>
         <h4 class="account-title"> Earnings </h4>
