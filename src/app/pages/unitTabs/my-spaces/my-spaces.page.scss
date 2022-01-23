@@ -14,7 +14,7 @@ ion-content {
       ion-button {
         font-size: 12px;
         padding: 3px 5px;
-        color: #000;
+        color: secondary;
         font-family: "helveticaneuebold";
         text-transform: capitalize;
       }
@@ -24,7 +24,7 @@ ion-content {
       padding: 0px !important;
       ion-card-subtitle {
         text-align: left;
-        color: #000;
+        color: tertiary;
         margin-top: 8px;
         font-size: 14px;
         font-family: "medium";
@@ -33,7 +33,7 @@ ion-content {
       }
       ion-card-title {
         text-align: left;
-        color: #000;
+        color: tertiary;
         font-size: 13px;
         span {
           color: #9b9b9b;
@@ -44,7 +44,7 @@ ion-content {
       padding: 0px !important;
       .card-content {
         text-align: left !important;
-        color: #000;
+        color: tertiary;
         font-size: 11px !important;
         margin-top: 0px;
         font-family: "helveticaneuebold";
@@ -98,7 +98,7 @@ ion-content {
   
   .main-heading {
     font-size: 22px;
-    color: #000;
+    color: tertiary;
     font-family: "helveticaneuebold";
     margin-left: 30px;
     margin-bottom: 5px;
@@ -107,7 +107,7 @@ ion-content {
   
   .main-titile {
     font-size: 12px;
-    color: #000;
+    color: tertiary;
     font-family: "medium";
     margin-left: 30px;
     margin-top: 5px;
@@ -115,7 +115,7 @@ ion-content {
   .addplace .new-btn {
     margin: 0 20px;
     font-size: 15px;
-    color: #000 !important;
+    color: tertiary !important;
     font-family: "medium";
     height: 44px !important;
     text-transform: capitalize !important;
@@ -129,7 +129,7 @@ ion-content {
   }
   .finish {
     font-size: 14px;
-    color: #2c2c2c;
+    color: secondary;
     font-family: "medium";
   }
   .progress-text {
