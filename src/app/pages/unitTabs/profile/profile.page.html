@@ -28,13 +28,27 @@
         <a routerLink="/phone-verification"> New here? Sign up </a>
       </p>
     </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
+    </ion-item>
+
+    <!-- <ion-item *ngIf="version">
+      <ion-note  slot="end" color="danger">{{version}}</ion-note>
+        <ion-label>
+        App Version
+        </ion-label>
+    </ion-item> -->
+
   </ng-template>
   <br>
   <div class="break">
   </div>
   <div *ngIf="logged">
     <br>
-
 
         <ion-list>
       <!-- <div *ngIf="permission.canCreateSpace">
@@ -104,6 +118,25 @@
     </div>
     <!-- FOR HOST -->
     
+    <ion-list-header>
+      <h3 class="account-title"> Me </h3>
+    </ion-list-header>
+
+    <ion-item (click)="chooseRole()" detail=false>
+      <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+      <!-- <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end"> -->
+      <ion-label>
+        Switch to Renter/Host view
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
+    </ion-item>
+
       <ion-list-header>
         <h4 class="account-title"> Earnings </h4>
       </ion-list-header>
@@ -115,9 +148,9 @@
     </ion-list>
   </div>
   
-    <ion-list-header>
+    <!-- <ion-list-header>
       <h3 class="account-title"> Referrals </h3>
-    </ion-list-header>
+    </ion-list-header> -->
     <ion-list *ngIf="permission.canSendInvite">
     <ion-item detail=false (click)="invite()">
       <img src="../../../../assets/imgs/ionic-md-gift.png" slot="end">
@@ -156,17 +189,24 @@
   </ion-list>
 
   <ion-list>
-    <ion-list-header>
+    <!-- <ion-list-header>
       <h3 class="account-title"> Support </h3>
-    </ion-list-header>   
-    <ion-item *ngIf="version">
+    </ion-list-header>    -->
+
+    <!-- <ion-item *ngIf="version">
       <ion-note  slot="end" color="danger">{{version}}</ion-note>
         <ion-label>
         App Version
         </ion-label>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
   
+  <ion-item routerLink="/checkr" detail=false>
+    <ion-label>
+      Personal info
+    </ion-label>
+    <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end">
+  </ion-item>
   
     <div *ngIf="logged">
     <ion-item (click)="logout()">
