@@ -5,10 +5,10 @@ import { Storage } from '@ionic/storage';
 import { GlobalService } from 'src/app/services/global.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { Plugins,Browser } from '@capacitor/core';
+import { Plugins, Browser } from '@capacitor/core';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { ApiService } from 'src/app/services/api-service.service';
-import { config, CTA } from '../../config/config';
+import { config, CTA, UNITURL, URL, KEY } from '../../config/config';
 
 const { Device } = Plugins;
 
@@ -25,43 +25,41 @@ export class ProfilePage implements OnInit {
       title: 'Password',
       url: '/change-password',
       icon: '../../assets/imgs/feather-lock.png'
-    },
-    
-    // {
-    //   title: 'Email/Notifications',
-    //   url: '',
-    //   icon: '../../../../assets/imgs/material-email.png'
-    // }
+    }
   ];
   email: any;
   name: any;
   lastName: any;
   profileImage: any;
   permissionlist: any;
-  version : any;
+  version: any;
   permission = {
-    canCreateSpace : false,
-    earningcanRetrive : false,
-    paymentCanpay : false,
-    canviewAdditionalInfo : false,
-    canSendInvite : false
+    canCreateSpace: false,
+    earningcanRetrive: false,
+    paymentCanpay: false,
+    canviewAdditionalInfo: false,
+    canSendInvite: false,
+    canBook: false
   };
   phone: any;
   orgId: any;
   userId: any;
+  token: any;
+  whitelistRoles: any;
 
   constructor(
     private storage: Storage,
     private _gs: GlobalService,
-    private alertCtrl : AlertController,
-    private router : Router,
-    private _toast : ToastService,
+    private alertCtrl: AlertController,
+    private router: Router,
+    private _toast: ToastService,
     private socialSharing: SocialSharing,
     private appVersion: AppVersion,
     private navController: NavController,
-    private _apiService : ApiService,
-    private renderer : Renderer2
+    private _apiService: ApiService,
+    private renderer: Renderer2
   ) {
+    this.getRole();
     this.appVersion.getVersionCode().then(res => {
       this.version = res;
     }).catch(error => {
@@ -75,28 +73,50 @@ export class ProfilePage implements OnInit {
     });
 
     this._gs.getUpdatedTabs().subscribe(status => {
-      if(status){
+      if (status) {
         console.log(status.permissions);
         this.permissionlist = status.permissions;
         this.setPermissions();
-        }
-      });
-     
-      this._gs.getLogOut().subscribe(status =>{
-        this.logged = false;
-      });
+      }
+    });
 
+    this._gs.getLogOut().subscribe(status => {
+      this.logged = false;
+    });
+
+    this.storage.get("session").then((session) => {
+      if (session) {
+        this.storage.get("org").then((org) => {
+          if (org) {
+            this.token = session;
+            this.orgId = org;
+          }
+        });
+      }
+    });
+  }
+  getRole() {
+    const params = {
+      apiKey: KEY.apikey
+    }
+    this._apiService
+      .postRequest(this.url + URL.getOnboardRoles, params)
+      .subscribe(async (res) => {
+        if (res.success) {
+          this.whitelistRoles = res.data.roles;
+        }
+      })
   }
   setPermissions() {
-    console.log(this.permissionlist);
     this.permission.canCreateSpace = this.permissionlist.includes("unit.space.canCreate");
-    this.permission.paymentCanpay  =  this.permissionlist.includes("unit.booking.payment.canPay");
+    this.permission.paymentCanpay = this.permissionlist.includes("unit.booking.payment.canPay");
     this.permission.earningcanRetrive = this.permissionlist.includes("unit.myearnings.canRetrive");
     this.permission.canviewAdditionalInfo = this.permissionlist.includes("unit.user.canViewInfo");
-    this.permission.canSendInvite =  this.permissionlist.includes("unit.invite.canSendEmail" || "unit.invite.canSendSMS");
+    this.permission.canBook = this.permissionlist.includes("unit.space.canBook");
+    this.permission.canSendInvite = this.permissionlist.includes("unit.invite.canSendEmail" || "unit.invite.canSendSMS");
   }
-  toggleTheme(event){
-    if (event.detail.checked){
+  toggleTheme(event) {
+    if (event.detail.checked) {
       document.body.setAttribute('color-theme', 'dark');
       // this.renderer.setAttribute(document.body, 'color-theme', 'dark');
     } else {
@@ -177,7 +197,7 @@ export class ProfilePage implements OnInit {
 
   logIn() {
     let navigationExtras: NavigationExtras = {
-      queryParams : {
+      queryParams: {
         from: 'tabs/profile'
       }
     }
@@ -185,39 +205,30 @@ export class ProfilePage implements OnInit {
   }
 
   chooseRole() {
-    let navigationExtras: NavigationExtras = {
-      queryParams : {
-        from: 'tabs/profile'
-      }
+    if (!this.token && !this.orgId) {
+      return false;
     }
-    this.router.navigate(['select-role'], navigationExtras);
+    this._apiService
+      .postRequest(this.url + UNITURL.updateRole, { token: this.token, orgId: this.orgId, whiteRoles: this.whitelistRoles }).subscribe(
+        (res) => {
+          if (res.success) {
+            this.storage.set("permissions", res.data);
+            this._gs.updateTabs({
+              orgId: this.orgId,
+              token: this.token,
+              permissions: res.data
+            });
+          }
+        }, (error) => console.log(error)
+      )
   }
 
-  // async chooseRole(){
-  //   console.log('Host or Renter?');
-  //   this.router.navigate(['select-role'], navigationExtras);
-  // }
-
-
-  // async chooseRole(userMeta: any) {
-  //   let navigationExtras: NavigationExtras = {
-  //     queryParams: {
-  //       special: JSON.stringify(userMeta)
-  //     }
-  //   };
-  //   this.router.navigate(['select-role'], navigationExtras);
-  // }
-
-  // chooseRole(navigationExtras) {
-  //   this.router.navigate(['select-role'], navigationExtras);
-  // }
-
-  async invite(){
+  async invite() {
     console.log('Invite send');
     this.router.navigate(['invite']);
   }
 
-  async consultLawyer(){
+  async consultLawyer() {
     const alert = await this.alertCtrl.create({
       header: 'Consult Lawyer',
       message: 'We will set you up with a free consultation before recommending you to a legal professional. Is this OK?',
@@ -239,7 +250,7 @@ export class ProfilePage implements OnInit {
   }
 
   consult() {
-     this.storage.get("org").then((org) => {
+    this.storage.get("org").then((org) => {
       if (org) {
         this.orgId = org;
         this.storage.get("loggedUserId").then((userId) => {
@@ -270,17 +281,17 @@ export class ProfilePage implements OnInit {
   navigateHost() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams : {
+      queryParams: {
         priviousPage: 'tabs/profile'
       }
     }
-    this.router.navigate(['add-address'],navigationExtras);
+    this.router.navigate(['add-address'], navigationExtras);
   }
 
-  becomeHost(){
+  becomeHost() {
     console.log('become Host');
   }
-  becomeTenant(){
+  becomeTenant() {
     console.log('become Tenant');
   }
 
