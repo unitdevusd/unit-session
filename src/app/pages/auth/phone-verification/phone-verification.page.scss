@@ -1,8 +1,13 @@
 :host {
     // background-color: #4C4E50;
-    background-image: url("../../../../assets/imgs/place1.jpg");
+    // background-image: url("../../../../assets/imgs/place1.jpg");
   }
   
+  .logo {
+    margin: 20px auto 0px;
+    width: 20%;
+  }
+
   ion-button {
     --box-shadow: none !important;
   }
