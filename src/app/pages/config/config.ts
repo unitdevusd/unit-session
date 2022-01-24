@@ -4,7 +4,7 @@ export const config = {
 }
 
 export const KEY = {
-    // apikey: 'YPBWEoixPMYs94QdW9n7kdqoy5n4iA'
+    // apikey: 'YPBWEoixPMYs94QdW9n7kdqoy5n4iA' //local
     apikey: 'rGpTKMEZjs3RR5vcfwg6pujoA54i33'
 }
 
@@ -82,7 +82,8 @@ export const UNITURL = {
     approveExtension : '/api/v1/unit/approveExtension',
     saveDevice : '/api/v1/unit/registerDevice',
     addToken: '/api/v1/unit/addToken',
-    sendInvite: '/api/v1/unit/sendInvite'
+    sendInvite: '/api/v1/unit/sendInvite',
+    updateRole: '/api/v1/unit/updateRole'
 };
 
 

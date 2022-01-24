@@ -52,7 +52,6 @@ export class SelectRolePage implements OnInit {
     .postRequest(this.url + URL.getOnboardRoles, params)
     .subscribe(async (res) => {
       if (res.success) {
-        console.log('hello', res);
         this.roles = res.data.roles;
         if(this.roles.length){
           for (let i = 0; i < this.roles.length; i++) {

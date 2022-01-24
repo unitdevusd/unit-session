@@ -27,6 +27,9 @@ export class TabsPage {
     private storage : Storage
   ) {
 
+    this._gs.getUpdatedTabs().subscribe(status => {
+      this.getUserData();
+    });
      // set on bais of notifications
      this._gs.getfcmData().subscribe(status =>{
       if(status){
@@ -34,8 +37,6 @@ export class TabsPage {
       }
     });
 
-    
-     
     // logout status
     this._gs.getLogOut().subscribe(status =>{
       if(status){
