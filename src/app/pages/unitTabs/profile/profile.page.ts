@@ -204,24 +204,24 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['login'], navigationExtras);
   }
 
-  chooseRole() {
-    if (!this.token && !this.orgId) {
-      return false;
-    }
-    this._apiService
-      .postRequest(this.url + UNITURL.updateRole, { token: this.token, orgId: this.orgId, whiteRoles: this.whitelistRoles }).subscribe(
-        (res) => {
-          if (res.success) {
-            this.storage.set("permissions", res.data);
-            this._gs.updateTabs({
-              orgId: this.orgId,
-              token: this.token,
-              permissions: res.data
-            });
-          }
-        }, (error) => console.log(error)
-      )
-  }
+  // chooseRole() {
+  //   if (!this.token && !this.orgId) {
+  //     return false;
+  //   }
+  //   this._apiService
+  //     .postRequest(this.url + UNITURL.updateRole, { token: this.token, orgId: this.orgId, whiteRoles: this.whitelistRoles }).subscribe(
+  //       (res) => {
+  //         if (res.success) {
+  //           this.storage.set("permissions", res.data);
+  //           this._gs.updateTabs({
+  //             orgId: this.orgId,
+  //             token: this.token,
+  //             permissions: res.data
+  //           });
+  //         }
+  //       }, (error) => console.log(error)
+  //     )
+  // }
 
   async invite() {
     console.log('Invite send');

@@ -56,9 +56,9 @@ export class SelectRolePage implements OnInit {
         if(this.roles.length){
           for (let i = 0; i < this.roles.length; i++) {
            this.roles[0].image = '../../../../assets/imgs/tanent.png';
-           this.roles[0].text = "Find Space.";
+           this.roles[0].text = "Rent a Unit";
             this.roles[1].image = '../../../../assets/imgs/owner.png';
-            this.roles[0].text = "List Space.";
+            this.roles[0].text = "Host your Unit";
           }
         }
       } else {
