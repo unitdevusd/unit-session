@@ -113,7 +113,7 @@ export class PlaceDetailPage implements OnInit {
 
   getTimings() {
     if (this.token) {
-      this.loader.present("getting TimeSlots ..");
+      this.loader.present("Getting timeSlots ..");
       const params = {
         placeId: this.data._id,
         token : this.token,

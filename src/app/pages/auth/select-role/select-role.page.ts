@@ -55,10 +55,12 @@ export class SelectRolePage implements OnInit {
         this.roles = res.data.roles;
         if(this.roles.length){
           for (let i = 0; i < this.roles.length; i++) {
-           this.roles[0].image = '../../../../assets/imgs/tanent.png';
-           this.roles[0].text = "Rent a Unit";
-            this.roles[1].image = '../../../../assets/imgs/owner.png';
-            this.roles[0].text = "Host your Unit";
+          this.roles[1].image = '../../../../assets/imgs/tanent.png';
+          this.roles[1].text = "Rent a Unit";
+          this.roles[0].image = '../../../../assets/imgs/owner.png';
+          this.roles[0].text = "Host your Unit";
+
+
           }
         }
       } else {
