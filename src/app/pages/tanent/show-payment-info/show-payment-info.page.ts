@@ -120,7 +120,7 @@ export class ShowPaymentInfoPage implements OnInit {
   }
 
   getTimings() {
-    this.loader.present("getting TimeSlots ..");
+    this.loader.present("Getting timeSlots ..");
     if (this.token) {
       const params = {
         placeId: this.placeDetails._id,
@@ -143,7 +143,7 @@ export class ShowPaymentInfoPage implements OnInit {
   }
 
   getPaymentProfile() {
-    this.loader.present('Getting card Info ..');
+    this.loader.present('Getting card info ..');
     if (this.token) {
       const params = {
         token: this.token,

@@ -28,14 +28,44 @@
         <a routerLink="/phone-verification"> New here? Sign up </a>
       </p>
     </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
+    </ion-item>
+
+    <!-- <ion-item *ngIf="version">
+      <ion-note  slot="end" color="danger">{{version}}</ion-note>
+        <ion-label>
+        App Version
+        </ion-label>
+    </ion-item> -->
+
   </ng-template>
   <br>
   <div class="break">
   </div>
   <div *ngIf="logged">
     <br>
-    <ion-list>
-      <!--  <div *ngIf="!permission.canCreateSpace">
+
+        <ion-list>
+      <!-- <div *ngIf="permission.canCreateSpace">
+        <ion-item (click)="navigateHost()" detail=false>
+          <img src="../../../../assets/imgs/awesome-building.png" slot="end">
+          <ion-label>
+            List your space
+          </ion-label>
+        </ion-item>
+        <ion-item (click)="becomeTenant()" detail=false>
+          <img src="../../../../assets/imgs/ionic-ios-home.png" slot="end">
+          <ion-label>
+            View as a Renter
+          </ion-label> 
+        </ion-item>
+      </div>
+      <div *ngIf="!permission.canCreateSpace">
         <ion-item (click)="becomeHost()" detail=false>
           <img src="../../../../assets/imgs/awesome-building.png" slot="end">
           <ion-label>
@@ -46,7 +76,9 @@
     </ion-list>
     <div>
       <ion-list-header>
-        <h3 class="account-title"> Me {{permission.canBook}} </h3>
+        <h3 class="account-title"> Me 
+          <!-- {{permission.canBook}}  -->
+        </h3>
       </ion-list-header>
       <ion-list>
         <ion-item (click)="chooseRole()" detail=false>
@@ -85,9 +117,29 @@
       </ion-list>
     </div>
     <!-- FOR HOST -->
-    <ion-list-header>
-      <h4 class="account-title"> Earnings </h4>
+    
+    <!-- <ion-list-header>
+      <h3 class="account-title"> Me </h3>
     </ion-list-header>
+
+    <ion-item (click)="chooseRole()" detail=false>
+      <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+      <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end">
+      <ion-label>
+        Switch to Renter/Host view
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
+    </ion-item> -->
+
+      <ion-list-header>
+        <h4 class="account-title"> Earnings </h4>
+      </ion-list-header>
     <ion-list *ngIf="permission.earningcanRetrive">
       <ion-item routerLink="/view-earnings" detail=false style="padding-right: 0px !important">
         <ion-icon class="icon-style" slot="end" name="cash-outline"></ion-icon>
@@ -95,11 +147,11 @@
       </ion-item>
     </ion-list>
   </div>
-
-  <ion-list-header>
-    <h3 class="account-title"> Referrals </h3>
-  </ion-list-header>
-  <ion-list *ngIf="permission.canSendInvite">
+  
+    <!-- <ion-list-header>
+      <h3 class="account-title"> Referrals </h3>
+    </ion-list-header> -->
+    <ion-list *ngIf="permission.canSendInvite">
     <ion-item detail=false (click)="invite()">
       <img src="../../../../assets/imgs/ionic-md-gift.png" slot="end">
       <ion-label>Invite friends</ion-label>
@@ -137,19 +189,26 @@
   </ion-list>
 
   <ion-list>
-    <ion-list-header>
+    <!-- <ion-list-header>
       <h3 class="account-title"> Support </h3>
-    </ion-list-header>
-    <ion-item *ngIf="version">
-      <ion-note slot="end" color="danger">{{version}}</ion-note>
-      <ion-label>
+    </ion-list-header>    -->
+
+    <!-- <ion-item *ngIf="version">
+      <ion-note  slot="end" color="danger">{{version}}</ion-note>
+        <ion-label>
         App Version
-      </ion-label>
-    </ion-item>
+        </ion-label>
+    </ion-item> -->
   </ion-list>
-
-
-  <div *ngIf="logged">
+  
+  <!-- <ion-item routerLink="/checkr" detail=false>
+    <ion-label>
+      Personal info
+    </ion-label>
+    <img src="../../../../assets/imgs/awesome-user-edit.png" slot="end">
+  </ion-item> -->
+  
+    <div *ngIf="logged">
     <ion-item (click)="logout()">
       <ion-label color="danger" class="logout">
         Logout

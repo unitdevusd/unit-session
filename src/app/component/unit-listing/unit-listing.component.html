@@ -24,6 +24,10 @@
               <ion-card-content class="no-padding">
                 <div class="card-content">
                   ${{item?.pricing?.daily}}/<span>day</span>
+
+                  <ion-icon name="share-social-outline" color="dark" style="font-size: 20px;" class="mr-l"
+                  (click)="shareByFacebook(space)"></ion-icon>
+
                 </div>
               </ion-card-content>
             </ion-card>
@@ -35,6 +39,6 @@
   <ng-template #noPlaces>
     <div class="no-item">
       <img src="../../../../assets/imgs/emptyList.png" />
-      <h5> No unit's Found!</h5>
+      <h5> No Units Found...</h5>
     </div>
   </ng-template>
