@@ -99,10 +99,14 @@
   </div>
   <ng-template #notFound>
     <h2 class="main-heading" *ngIf="userName">Hi {{userName}} {{lastName}}</h2>
-    <h3 class="main-titile" *ngIf="userName">Do you want to add any spaces?</h3>
+    <h3 class="main-titile" *ngIf="userName">Do you want to add a unit?</h3>
     <div class="ion-padding">
-      <img class="dummy_place" src="/assets/imgs/owner_img.png" />
+      <img class="dummy_place" src="/assets/imgs/owner.png" />
+      <center>
+        Add your units here
+      </center>  
     </div>
+    <br>
     <div class="addplace">
       <ion-button shape="round" color="unit-white" (click)="addSpace()" fill="outline" expand="block" class="new-btn">
         Add new Space
